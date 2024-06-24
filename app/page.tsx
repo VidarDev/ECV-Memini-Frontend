@@ -36,6 +36,11 @@ export default function Home() {
           <GithubIcon size={20} />
           GitHub
         </Link>
+        <div>
+          <Link href="/login">
+            <button>Aller à la destination</button>
+          </Link>
+        </div>
       </div>
 
       <div className="mt-8">
