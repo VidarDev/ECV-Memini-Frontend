@@ -23,14 +23,10 @@ export default function Home() {
       <div className="flex gap-3">
         <Link
           isExternal
-          className={buttonStyles({
-            color: 'primary',
-            radius: 'full',
-            variant: 'shadow',
-          })}
-          href={siteConfig.links.docs}
+          className={`${buttonStyles()} bg-theme-primary text-theme-neutral min-h-10 w-fit gap-2 rounded-full px-6 text-sm font-bold`}
+          href={'/uikit'}
         >
-          Documentation
+          Uikit
         </Link>
         <Link
           isExternal

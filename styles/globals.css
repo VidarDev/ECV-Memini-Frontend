@@ -3,3 +3,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-theme-gradient {
+    background-color: var(--theme-primary);
+    background: linear-gradient(73deg, var(--theme-primary) 27.95%, var(--theme-secondary) 134.46%);
+}
+
+.bg-theme-gradient-secondary {
+    background-color: var(--theme-secondary);
+    background: linear-gradient(70deg, var(--theme-secondary) -53.75%, var(--theme-primary) 96.16%);
+}
+
+.bg-theme-gradient-neutral {
+    background-color: var(--theme-neutral);
+    background: linear-gradient(262deg, var(--theme-neutral-invert) -48.94%, var(--theme-neutral) 91.45%);
+}
+
+*[class^='memicon-']::before,
+*[class*=' memicon-']::before {
+    content: ' ';
+    display: block;
+    background: currentColor;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+*[class^='memicon-'],
+*[class*=' memicon-'] {
+    display: inline-block;
+}
+
+.memicon-arrow::before{
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3 12H18' stroke='%232C2829' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M15 6L21 12L15 18' stroke='%232C2829' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3 12H18' stroke='%232C2829' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M15 6L21 12L15 18' stroke='%232C2829' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.themed-input [data-slot='input-wrapper'] {
+    @apply !bg-theme-neutral-background data-[hover=true]:bg-theme-neutral-background data-[focus=true]:border-theme-primary data-[hover=true]:border-theme-primary p-2 data-[focus=true]:bg-theme-neutral-background border border-theme-primary-light gap-2 min-h-12 h-0;
+}
+.themed-input [data-slot='input-wrapper'] [data-slot='input'] {
+    @apply text-sm font-normal text-theme-neutral placeholder:text-theme-neutral;
+}
+.themed-input[data-filled-within="true"] [data-slot='input-wrapper'] [data-slot='label'] {
+    @apply scale-100 px-2 top-0 text-theme-neutral;
+}
+.themed-input [data-slot='input-wrapper'] [data-slot='label'] {
+    @apply !bg-theme-neutral-background text-xs font-normal text-theme-neutral placeholder:text-theme-neutral;
+}
