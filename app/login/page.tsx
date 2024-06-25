@@ -92,6 +92,10 @@ const Login = () => {
             {loginStatus === "loading" ? "Se connecte à..." : "Se connecter"}
             <span className="memicon-arrow" />{" "}
           </button>
+          <div className="text-black mt-6">
+            <p> Vous débutez sur Memini? </p>
+            <p className="underline"> <a href="/signup"> Inscrivez-vous </a> </p>
+          </div>
         </form>
       </div>
     </div>
