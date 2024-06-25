@@ -23,6 +23,7 @@ module.exports = {
           'neutral-invert': 'var(--theme-neutral-invert)',
           'neutral-background': 'var(--theme-neutral-bg)',
           primary: 'var(--theme-primary)',
+          'primary-400': 'var(--theme-primary-400)',
           'primary-light': 'var(--theme-primary-light)',
           'primary-hover': 'var(--theme-primary-hover)',
           disabled: 'var(--theme-disabled)',

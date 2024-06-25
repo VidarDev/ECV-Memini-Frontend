@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import { Metadata, Viewport } from 'next';
 import clsx from 'clsx';
+import { ScrollShadow } from '@nextui-org/scroll-shadow';
 
 import { Providers } from './providers';
 
@@ -48,14 +49,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html suppressHydrationWarning className={'bg-theme-neutral-background'} lang="en">
       <head />
-      <body className={clsx('font-pangaia min-h-screen bg-transparent antialiased')}>
+      <body
+        className={clsx('min-h-screen overflow-y-hidden bg-transparent font-pangaia antialiased')}
+      >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
+          <ThemedNavbar />
           <div className="relative flex min-h-screen flex-col">
-            <ThemedNavbar />
-            <main className="container mx-auto max-w-[800px] flex-grow px-6 pb-24">{children}</main>
-            <footer className="hidden w-full items-center justify-center py-3">
-              <span className="text-theme-neutral">Powered by Memini</span>
-            </footer>
+            <ScrollShadow
+              hideScrollBar
+              className="relative flex max-h-screen min-h-screen flex-col"
+              size={48}
+            >
+              <main className="container mx-auto max-w-[756px] flex-grow">{children}</main>
+              <footer className="hidden w-full items-center justify-center py-3">
+                <span className="text-theme-neutral">Powered by Memini</span>
+              </footer>
+            </ScrollShadow>
           </div>
         </Providers>
       </body>

@@ -41,7 +41,7 @@ export default function UikitPage() {
         </Link>
         <Link
           isExternal
-          className={`${buttonStyles()} bg-theme-gradient min-h-10 w-fit gap-2 rounded-full bg-theme-primary px-6 text-sm font-bold text-theme-neutral`}
+          className={`${buttonStyles()} bg-theme-gradient min-h-10 w-fit gap-2 rounded-full px-6 text-sm font-bold text-theme-neutral`}
           href={siteConfig.links.docs}
         >
           Documentation
@@ -49,7 +49,7 @@ export default function UikitPage() {
         </Link>
         <Link
           isExternal
-          className={`${buttonStyles()} bg-theme-gradient h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-primary p-2 text-sm font-bold text-theme-neutral`}
+          className={`${buttonStyles()} bg-theme-gradient h-14 w-14 min-w-14 gap-2 rounded-full p-2 text-sm font-bold text-theme-neutral`}
           href={siteConfig.links.docs}
         >
           <span className={'memicon-arrow'} />{' '}
