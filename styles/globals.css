@@ -1,5 +1,8 @@
 @import "themes.css";
-@import "themedinput.css";
+@import "components/themedinput.css";
+@import "components/themedradio.css";
+@import "components/themedcheckbox.css";
+@import "components/themedprogress.css";
 @import "memicon.css";
 
 @tailwind base;

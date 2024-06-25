@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <div className="relative flex h-screen flex-col">
+          <div className="relative flex min-h-screen flex-col">
             <Navbar />
             <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">{children}</main>
             <footer className="flex w-full items-center justify-center py-3">

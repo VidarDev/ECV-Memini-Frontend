@@ -1,9 +1,15 @@
 import { Link } from '@nextui-org/link';
 import { button as buttonStyles } from '@nextui-org/theme';
 import { Input } from '@nextui-org/input';
+import React from 'react';
+import { RadioGroup } from '@nextui-org/radio';
+import { Progress } from '@nextui-org/progress';
 
 import { title } from '@/components/primitives';
 import { siteConfig } from '@/config/site';
+import ThemedRadio from '@/components/ThemedRadio';
+import { Checkbox, CheckboxGroup } from '@nextui-org/checkbox';
+import ThemedCheckbox from '@/components/ThemedCheckbox';
 
 export default function UikitPage() {
   return (
@@ -114,7 +120,30 @@ export default function UikitPage() {
         <Input className={'themed-input'} label="Email" type="email" />
       </div>
       <h3 className={'text-sm text-theme-neutral'}>Radio</h3>
-      <div className={'flex flex-wrap gap-2'}></div>
+      <div className={'flex flex-wrap gap-2'}>
+        <RadioGroup className={'w-full'} label="">
+          <ThemedRadio value="free">Free</ThemedRadio>
+          <ThemedRadio value="pro">Pro</ThemedRadio>
+          <ThemedRadio value="enterprise">Enterprise</ThemedRadio>
+        </RadioGroup>
+      </div>
+      <h3 className={'text-sm text-theme-neutral'}>Progress</h3>
+      <div className={'flex flex-wrap gap-2'}>
+        <Progress
+          isIndeterminate
+          aria-label="Downloading..."
+          className="themed-progress w-full"
+          size="md"
+          // value="50"
+        />
+      </div>
+      <div className={'flex flex-wrap gap-2'}>
+        <CheckboxGroup className={'w-full'} label="">
+          <ThemedCheckbox value="free">Free</ThemedCheckbox>
+          <ThemedCheckbox value="pro">Pro</ThemedCheckbox>
+          <ThemedCheckbox value="enterprise">Enterprise</ThemedCheckbox>
+        </CheckboxGroup>
+      </div>
       <nav
         className={
           'bottom-navbar fixed bottom-4 left-1/2 z-50 flex min-h-16 -translate-x-1/2 rounded-full bg-theme-neutral-invert text-theme-neutral-background shadow-lg'
