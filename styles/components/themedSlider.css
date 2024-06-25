@@ -1,0 +1,15 @@
+.themed-slider [data-slot="track-wrapper"] [data-slot="track"] {
+    @apply bg-theme-neutral-invert h-4 border-s-theme-primary;
+}
+
+.themed-slider [data-slot="track-wrapper"] [data-slot="track"] [data-slot="thumb"] {
+    @apply bg-theme-primary h-8 w-8;
+}
+
+.themed-slider [data-slot="track-wrapper"] [data-slot="track"] [data-slot="filler"] {
+    @apply bg-theme-primary;
+}
+
+.themed-slider [data-slot="track-wrapper"] [data-slot="track"] [data-slot="thumb"]:after {
+    @apply hidden;
+}

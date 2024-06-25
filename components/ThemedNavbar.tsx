@@ -8,7 +8,7 @@ export const ThemedNavbar = () => {
       <NextUINavbar className={'themed-navbar bg-transparent backdrop-filter-none'}>
         <nav
           className={
-            'bottom-navbar fixed bottom-4 left-1/2 z-50 flex min-h-16 -translate-x-1/2 rounded-full bg-theme-neutral-invert text-theme-neutral-background shadow-lg'
+            'bottom-navbar fixed bottom-8 left-1/2 z-50 flex min-h-16 -translate-x-1/2 rounded-full bg-theme-neutral-invert text-theme-neutral-background shadow-lg'
           }
         >
           <ul className={'relative flex w-full justify-center gap-2 px-6 pb-1.5 pt-4'}>

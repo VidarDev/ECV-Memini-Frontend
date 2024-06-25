@@ -6,6 +6,9 @@
 @import "components/themedCheckbox.css";
 @import "components/themedCheckboxImage.css";
 @import "components/themedprogress.css";
+@import "components/themedSelect.css";
+@import "components/themedTextarea.css";
+@import "components/themedSlider.css";
 @import "memicon.css";
 
 @tailwind base;

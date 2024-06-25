@@ -5,6 +5,7 @@ import React from 'react';
 import { RadioGroup } from '@nextui-org/radio';
 import { Progress } from '@nextui-org/progress';
 import { CheckboxGroup } from '@nextui-org/checkbox';
+import { Slider } from '@nextui-org/slider';
 
 import { title } from '@/components/primitives';
 import { siteConfig } from '@/config/site';
@@ -12,6 +13,9 @@ import ThemedRadio from '@/components/ThemedRadio';
 import ThemedRadioImages from '@/components/ThemedRadioImage';
 import ThemedCheckbox from '@/components/ThemedCheckbox';
 import ThemedCheckboxImage from '@/components/ThemedCheckboxImage';
+import ThemedSelect from '@/components/ThemedSelect';
+import ThemedTextarea from '@/components/ThemedTextarea';
+import ThemedSwitch from '@/components/ThemedSwitch';
 
 export default function UikitPage() {
   return (
@@ -152,7 +156,7 @@ export default function UikitPage() {
           // value="50"
         />
       </div>
-      <h3 className={'text-sm text-theme-neutral'}>Progress</h3>
+      <h3 className={'text-sm text-theme-neutral'}>Checkbox</h3>
       <div className={'flex flex-wrap gap-2'}>
         <CheckboxGroup className={'w-full'} label="">
           <ThemedCheckbox value="free">Free</ThemedCheckbox>
@@ -172,6 +176,37 @@ export default function UikitPage() {
             <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
           </ThemedCheckboxImage>
         </CheckboxGroup>
+      </div>
+      <h3 className={'text-sm text-theme-neutral'}>Checkbox</h3>
+      <div className={'flex flex-wrap gap-2'}>
+        <ThemedSelect
+          isRequired
+          defaultSelectedKeys={['tiger']}
+          disabledKeys={['zebra']}
+          label={'Les'}
+          placeholder="Select an animal"
+          selectionMode="multiple"
+        />
+      </div>
+      <h3 className={'text-sm text-theme-neutral'}>Textarea</h3>
+      <div className={'flex flex-wrap gap-2'}>
+        <ThemedTextarea label="Description" placeholder="Enter your description" />
+      </div>
+      <h3 className={'text-sm text-theme-neutral'}>Slider</h3>
+      <div className={'flex flex-wrap gap-2'}>
+        <Slider
+          size="md"
+          aria-label="Temperature"
+          className="themed-slider"
+          defaultValue={0.7}
+          maxValue={1}
+          minValue={0}
+          step={0.01}
+        />
+      </div>
+      <h3 className={'text-sm text-theme-neutral'}>Slider</h3>
+      <div className={'flex flex-wrap gap-2'}>
+        <ThemedSwitch />
       </div>
     </div>
   );
