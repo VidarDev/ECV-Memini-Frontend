@@ -1,5 +1,9 @@
 "use client"; // Ajoutez cette ligne au début du fichier
 import { useState } from "react";
+import { Input } from '@nextui-org/input';
+import { Link } from '@nextui-org/link';
+import '../../styles/globals.css';
+
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -40,9 +44,24 @@ const Login = () => {
   
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md max-w-md w-full">
-        <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
+    <div className="flex items-center justify-center min-h-screen bg-theme-neutral-background">
+      <div className=" p-8">
+      <div>
+        <img src="/images/logo_typographique_black.svg" alt="Description de l'image" width={"200rem"} height={"200rem"}/>
+      </div>
+      <div>
+        <div className="flex justify-center flex-col items-center text-black">
+          <div> 
+            <p> Se connecter</p>
+          </div>
+          <div>
+            <img className="ml-10"src="/images/underline_title.svg" alt="Description de l'image" width={"80rem"} height={"50rem"}/>
+          </div>
+        </div>
+        <div>
+      </div>
+        
+      </div>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         {loginStatus === "success" && (
           <p className="text-green-500 mb-4">Login successful!</p>
@@ -52,37 +71,37 @@ const Login = () => {
         )}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username
-            </label>
-            <input
+            <Input
               id="username"
+              label="Pseudo"
               type="text"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className={'themed-input'}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            {/* <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Password
-            </label>
-            <input
+            </label> */}
+            <Input
               id="password"
+              label="Mot de passe"
               type="password"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className={'themed-input'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          <button
+          {/* <Link
             type="submit"
-            className="w-full bg-blue-500 text-white p-3 rounded-md font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            isExternal
+          className={`${buttonStyles()} border-theme-neutral text-theme-neutral h-14 w-14 min-w-14 gap-2 rounded-full border bg-transparent p-2 text-sm font-bold`}
           >
             {loginStatus === "loading" ? "Logging in..." : "Login"}
-          </button>
+          <Link/> */}
         </form>
       </div>
     </div>
