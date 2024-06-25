@@ -1,17 +1,16 @@
 @import "themes.css";
-@import "components/themedinput.css";
-@import "components/themedradio.css";
-@import "components/themedcheckbox.css";
+@import "components/themedNavbar.css";
+@import "components/themedInput.css";
+@import "components/themedRadio.css";
+@import "components/themedRadioImage.css";
+@import "components/themedCheckbox.css";
+@import "components/themedCheckboxImage.css";
 @import "components/themedprogress.css";
 @import "memicon.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-    @apply !bg-theme-neutral-background;
-}
 
 .bg-theme-gradient {
     background-color: var(--theme-primary);

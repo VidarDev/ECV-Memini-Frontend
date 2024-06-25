@@ -4,12 +4,14 @@ import { Input } from '@nextui-org/input';
 import React from 'react';
 import { RadioGroup } from '@nextui-org/radio';
 import { Progress } from '@nextui-org/progress';
+import { CheckboxGroup } from '@nextui-org/checkbox';
 
 import { title } from '@/components/primitives';
 import { siteConfig } from '@/config/site';
 import ThemedRadio from '@/components/ThemedRadio';
-import { Checkbox, CheckboxGroup } from '@nextui-org/checkbox';
+import ThemedRadioImages from '@/components/ThemedRadioImage';
 import ThemedCheckbox from '@/components/ThemedCheckbox';
+import ThemedCheckboxImage from '@/components/ThemedCheckboxImage';
 
 export default function UikitPage() {
   return (
@@ -127,6 +129,19 @@ export default function UikitPage() {
           <ThemedRadio value="enterprise">Enterprise</ThemedRadio>
         </RadioGroup>
       </div>
+      <div className={'flex flex-wrap gap-2'}>
+        <RadioGroup className={'w-full'} label="">
+          <ThemedRadioImages value="free">
+            <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+          </ThemedRadioImages>
+          <ThemedRadioImages value="pro">
+            <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+          </ThemedRadioImages>
+          <ThemedRadioImages value="enterprise">
+            <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+          </ThemedRadioImages>
+        </RadioGroup>
+      </div>
       <h3 className={'text-sm text-theme-neutral'}>Progress</h3>
       <div className={'flex flex-wrap gap-2'}>
         <Progress
@@ -137,6 +152,7 @@ export default function UikitPage() {
           // value="50"
         />
       </div>
+      <h3 className={'text-sm text-theme-neutral'}>Progress</h3>
       <div className={'flex flex-wrap gap-2'}>
         <CheckboxGroup className={'w-full'} label="">
           <ThemedCheckbox value="free">Free</ThemedCheckbox>
@@ -144,81 +160,19 @@ export default function UikitPage() {
           <ThemedCheckbox value="enterprise">Enterprise</ThemedCheckbox>
         </CheckboxGroup>
       </div>
-      <nav
-        className={
-          'bottom-navbar fixed bottom-4 left-1/2 z-50 flex min-h-16 -translate-x-1/2 rounded-full bg-theme-neutral-invert text-theme-neutral-background shadow-lg'
-        }
-      >
-        <ul className={'relative flex w-full justify-center gap-2 px-6 pb-1.5 pt-4'}>
-          <div className={'flex gap-6'}>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/uikit"
-              >
-                <span
-                  className={
-                    'memicon-home text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/about"
-              >
-                <span
-                  className={
-                    'memicon-albums text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
-          </div>
-          <div className={'flex h-full min-w-20 justify-center'}>
-            <li className={'absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-1/2'}>
-              <Link href="/services">
-                <span className={'memicon-add-color pl-0.5 text-[3rem] text-theme-neutral'} />
-              </Link>
-            </li>
-          </div>
-          <div className={'flex gap-6'}>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/contact"
-              >
-                <span
-                  className={
-                    'memicon-star text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/profile"
-              >
-                <span
-                  className={
-                    'memicon-user text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
-          </div>
-        </ul>
-      </nav>
+      <div className={'flex flex-wrap gap-2'}>
+        <CheckboxGroup className={'w-full'} label="">
+          <ThemedCheckboxImage value="free">
+            <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+          </ThemedCheckboxImage>
+          <ThemedCheckboxImage value="okfoo">
+            <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+          </ThemedCheckboxImage>
+          <ThemedCheckboxImage value="ekfoekf">
+            <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+          </ThemedCheckboxImage>
+        </CheckboxGroup>
+      </div>
     </div>
   );
 }

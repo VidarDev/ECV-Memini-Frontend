@@ -1,0 +1,18 @@
+.themed-checkbox-image  > div {
+    @apply ml-0;
+}
+.themed-checkbox-image  > span {
+    @apply hidden;
+}
+.themed-checkbox-image  > span:has(img) {
+    @apply block;
+}
+.themed-checkbox-image  > span img,
+.themed-checkbox-image  > span .img {
+    @apply rounded-full;
+}
+.themed-checkbox-image  > span[aria-hidden]:after,
+.themed-checkbox-image  > span[aria-hidden]:before,
+.themed-checkbox-image  > span[aria-hidden] svg {
+    @apply !hidden !pointer-events-none;
+}
