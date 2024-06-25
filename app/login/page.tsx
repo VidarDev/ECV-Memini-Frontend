@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Input } from "@nextui-org/input";
-import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import "../../styles/globals.css";
 
@@ -35,10 +34,14 @@ const Login = () => {
       // Login successful
       setLoginStatus("success");
       console.log("Login successful");
-    } catch (error:any) {
-      console.error("Login error:", error);
+    } catch (err) {
+      console.error("Login error:", err);
       setLoginStatus("error");
-      setError(error.message || "An error occurred. Please try again.");
+      if (err instanceof Error) {
+        setError(err.message || "An error occurred. Please try again.");
+      } else {
+        setError("An unknown error occurred. Please try again.");
+      }
     }
   };
 
@@ -82,14 +85,13 @@ const Login = () => {
               required
             />
           </div>
-          <Link
-            isExternal
+          <button
             type="submit"
             className={`${buttonStyles()} bg-theme-neutral text-theme-neutral-invert gap-2 rounded-full p-2 pl-10 pr-10 text-sm font-bold`}
           >
             {loginStatus === "loading" ? "Se connecte à..." : "Se connecter"}
-            <span className={'memicon-arrow'} />{' '}
-          </Link>
+            <span className="memicon-arrow" />{" "}
+          </button>
         </form>
       </div>
     </div>
