@@ -23,7 +23,7 @@ const Login = () => {
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        body: JSON.stringify({ username, password }), // Assurez-vous que username et password sont corrects ici
+        body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
@@ -68,7 +68,7 @@ const Login = () => {
               id="username"
               label="Pseudo"
               type="text"
-              className="themed-input"
+              className="themed-input text-black"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -79,7 +79,7 @@ const Login = () => {
               id="password"
               label="Mot de passe"
               type="password"
-              className="themed-input"
+              className="themed-input text-black"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
