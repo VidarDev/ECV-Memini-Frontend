@@ -1,6 +1,10 @@
+'use client';
+
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { Image } from '@nextui-org/image';
 import { button as buttonStyles } from '@nextui-org/theme';
-import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
 import React from 'react';
 import ThemedRadioImages from '@/components/ThemedRadioImage';
@@ -8,6 +12,23 @@ import { RadioGroup } from '@nextui-org/radio';
 import AddIcons from '@/components/images/AddIcons';
 
 export default function Albums() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
+
   return (
     <>
       <section

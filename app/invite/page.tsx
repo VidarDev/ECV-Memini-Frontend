@@ -1,13 +1,30 @@
-import { Image } from '@nextui-org/image';
+'use client';
+
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
 import { button as buttonStyles } from '@nextui-org/theme';
-import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Input } from '@nextui-org/input';
-import { Accordion, AccordionItem } from '@nextui-org/accordion';
-import ThemedAccordion from '@/components/ThemedAccordion';
 
 export default function Home() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
+
   return (
     <>
       <section

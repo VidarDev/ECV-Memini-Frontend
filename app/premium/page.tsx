@@ -1,12 +1,32 @@
+'use client';
+
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { button as buttonStyles } from '@nextui-org/theme';
 import { Link } from '@nextui-org/link';
 import React from 'react';
-import { Input } from '@nextui-org/input';
-import OneIcons from '@/components/images/oneIcons';
 import PreniumIcons from '@/components/images/premiumIcons';
 import { siteConfig } from '@/config/site';
 
 export default function Home() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
+
   return (
     <>
       <section

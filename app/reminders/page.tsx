@@ -1,3 +1,8 @@
+'use client';
+
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import React from 'react';
 import { Slider } from '@nextui-org/slider';
 
@@ -5,6 +10,23 @@ import ThemedSwitch from '@/components/ThemedSwitch';
 import { Link } from '@nextui-org/link';
 
 export default function Home() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
+
   return (
     <>
       <section

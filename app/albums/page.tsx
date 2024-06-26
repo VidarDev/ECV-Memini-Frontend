@@ -1,13 +1,32 @@
+'use client';
+
 import { Image } from '@nextui-org/image';
-import { button as buttonStyles } from '@nextui-org/theme';
-import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
 import React from 'react';
 import ThreeIcons from '@/components/images/threeIcons';
-import NavIcons from '@/components/images/NavIcons';
 import AddIcons from '@/components/images/AddIcons';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
-export default function Albums() {
+export default function AlbumsScreen() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
+
   return (
     <>
       <section
