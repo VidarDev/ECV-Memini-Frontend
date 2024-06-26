@@ -31,7 +31,7 @@ export default function Home() {
       </section>
       <section
         className={
-          'app-translate-y relative flex min-h-48 flex-col items-center justify-center pb-4'
+          'app-translate-y relative flex min-h-48 flex-col items-center justify-center pb-6'
         }
       >
         <div className={'w-full px-2'}>

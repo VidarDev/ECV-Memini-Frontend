@@ -20,7 +20,7 @@ export default function Home() {
         </div>
       </section>
       <section
-        className={'app-translate-y-3 relative flex flex-col items-center justify-center pb-4'}
+        className={'app-translate-y-3 relative flex flex-col items-center justify-center pb-36'}
       >
         <div className={'flex w-full flex-col items-center justify-center gap-4 px-4'}>
           <div className={'flex w-fit items-center gap-8 rounded-2xl bg-theme-neutral-invert p-6'}>

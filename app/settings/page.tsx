@@ -23,7 +23,7 @@ export default function Home() {
       </section>
       <section
         className={
-          'app-translate-y-3 relative flex min-h-48 flex-col items-center justify-center pb-4'
+          'app-translate-y-3 relative flex min-h-48 flex-col items-center justify-center pb-36'
         }
       >
         <div className={'flex w-full flex-col gap-4 px-4'}>

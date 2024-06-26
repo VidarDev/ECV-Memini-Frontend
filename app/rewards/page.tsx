@@ -21,7 +21,7 @@ export default function Albums() {
       </section>
       <section
         className={
-          'app-translate-y-2 relative flex min-h-48 flex-col items-center justify-center px-4 pb-4'
+          'app-translate-y-2 relative flex min-h-48 flex-col items-center justify-center px-4 pb-6'
         }
       >
         <h2 className={'w-full font-pangaia text-xl font-medium text-theme-neutral'}>
