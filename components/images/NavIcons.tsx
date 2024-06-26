@@ -1,7 +1,7 @@
 import * as React from 'react';
 const NavIcons = ({ startColor, endColor, centerColor, ...otherProps }: any) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={48} height={48} fill="none" {...otherProps}>
-    <g clipPath="url(#a)">
+    <g clipPath="url(#patha)">
       <circle cx={24} cy={24} r={24} fill="url(#b)" />
       <path
         stroke={centerColor}
@@ -16,7 +16,7 @@ const NavIcons = ({ startColor, endColor, centerColor, ...otherProps }: any) => 
         <stop stopColor={startColor} />
         <stop offset={1} stopColor={endColor} />
       </linearGradient>
-      <clipPath id="a">
+      <clipPath id="patha">
         <path fill="#fff" d="M0 0h48v48H0z" />
       </clipPath>
     </defs>

@@ -10,12 +10,12 @@ export default function Home() {
     <>
       <section
         className={
-          'bg-theme-primary-200 relative flex min-h-[250px] flex-col rounded-b-[80px] px-4'
+          'relative flex min-h-[250px] flex-col rounded-b-[80px] bg-theme-primary-200 px-4'
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <Link className={`px-4 text-theme-neutral`} href={'/uikit'}>
-            <span className={'memicon-arrow text-5xl'}></span>
+          <Link className={`px-4 text-theme-neutral`} href={'/profile'}>
+            <span className={'memicon-arrow-left text-5xl'}></span>
           </Link>
           <div className={'relative w-fit'}>
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Paramètres</h1>

@@ -117,10 +117,9 @@ export default function Albums() {
               </div>
             </div>
             <div className={'w-1/2 px-2'}>
-              <div
-                className={
-                  'app-min-h-card theme-shadow relative flex w-full flex-col gap-4 rounded-2xl bg-theme-neutral-invert p-4 text-[102px]'
-                }
+              <Link
+                className={`app-min-h-card theme-shadow relative flex min-h-full w-full min-w-full flex-1 flex-col gap-4 rounded-2xl bg-theme-neutral-invert p-4 text-[102px] *:w-full *:!max-w-full`}
+                href={'/uikit'}
               >
                 <AddIcons
                   className={'h-[24px] w-[24px]'}
@@ -129,9 +128,9 @@ export default function Albums() {
                   centerColor={'var(--theme-neutral-invert)'}
                 ></AddIcons>{' '}
                 {/* TODO : replace */}
-                <span className={'text-base font-medium'}>Mon album perso</span>
+                <span className={'text-base font-medium text-theme-neutral'}>Mon album perso</span>
                 {/* TODO : replace */}
-              </div>
+              </Link>
             </div>
           </div>
         </div>

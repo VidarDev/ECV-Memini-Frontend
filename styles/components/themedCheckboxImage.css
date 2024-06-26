@@ -1,3 +1,6 @@
+.themed-checkbox-image {
+    @apply font-raleway;
+}
 .themed-checkbox-image  > div {
     @apply ml-0;
 }

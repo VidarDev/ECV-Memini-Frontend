@@ -46,9 +46,8 @@ export default function Albums() {
             </h2>
             <div className={'flex flex-nowrap items-center gap-4 overflow-x-auto'}>
               <Link
-                isExternal
                 className={`${buttonStyles()} h-8 min-h-8 w-fit gap-2 rounded-full border border-theme-primary-400 bg-theme-primary-400 px-4 font-raleway text-sm font-normal text-theme-neutral`}
-                href={siteConfig.links.docs}
+                href={'#'}
               >
                 Me remettre d’un épisode difficile
               </Link>
@@ -76,7 +75,7 @@ export default function Albums() {
           <Link
             isExternal
             className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
-            href={'/uikit'}
+            href={'tel:+33606060606'}
           >
             J{"'"}appelle un spécialiste
             <span className={'memicon-arrow'} />
@@ -95,13 +94,13 @@ export default function Albums() {
             </div>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/uikit'}
+              href={'/settings'}
             >
               Paramètres
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/uikit'}
+              href={'/reminders'}
             >
               Rappels
             </Link>
@@ -116,19 +115,19 @@ export default function Albums() {
             </div>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/uikit'}
+              href={'/premium'}
             >
               Passer au premium
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/uikit'}
+              href={'#'}
             >
               Restaurer un achat
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/uikit'}
+              href={'/invite'}
             >
               Inviter un proche à collaborder
             </Link>
@@ -143,13 +142,13 @@ export default function Albums() {
             </div>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/uikit'}
+              href={'/faq'}
             >
               F.A.Q
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/uikit'}
+              href={'/assistance'}
             >
               Assistance
             </Link>

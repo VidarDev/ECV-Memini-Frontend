@@ -1,5 +1,5 @@
 .themed-accordion {
-    @apply !p-0 !m-0;
+    @apply !p-0 !m-0 font-raleway;
 }
 
 .themed-accordion .themed-accordion-item {

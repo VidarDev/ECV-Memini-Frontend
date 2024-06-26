@@ -1,3 +1,6 @@
+.themed-textarea {
+    @apply font-raleway;
+}
 .themed-textarea [data-slot='input-wrapper'] {
     @apply !bg-theme-neutral-background data-[hover=true]:bg-theme-neutral-background data-[focus=true]:border-theme-primary data-[hover=true]:border-theme-primary p-2 data-[focus=true]:bg-theme-neutral-background border border-theme-primary-light gap-2 min-h-12 h-0;
 }

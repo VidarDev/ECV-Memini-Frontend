@@ -1,3 +1,6 @@
+.themed-select {
+    @apply font-raleway;
+}
 .themed-slider [data-slot="track-wrapper"] [data-slot="track"] {
     @apply bg-theme-neutral-invert h-4 border-s-theme-primary;
 }

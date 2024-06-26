@@ -22,11 +22,13 @@ export default function UikitPage() {
     <>
       <section
         className={
-          'bg-theme-primary-200 relative flex min-h-[250px] flex-col rounded-b-[80px] px-4'
+          'relative flex min-h-[250px] flex-col rounded-b-[80px] bg-theme-primary-200 px-4'
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <span className={'memicon-arrow px-4 text-5xl'} />
+          <Link className={`px-4 text-theme-neutral`} href={'/'}>
+            <span className={'memicon-arrow-left text-5xl'}></span>
+          </Link>
           <div className={'relative w-fit'}>
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>UI KIT</h1>
             {/* TODO : replace */}
@@ -40,7 +42,7 @@ export default function UikitPage() {
           <div className={'flex flex-wrap gap-2'}>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-primary px-6 text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -48,29 +50,14 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-primary p-2 text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-primary p-2 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               <span className={'memicon-arrow'} />{' '}
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} bg-theme-gradient min-h-10 w-fit gap-2 rounded-full px-6 text-sm font-bold text-theme-neutral`}
-              href={siteConfig.links.docs}
-            >
-              Documentation
-              <span className={'memicon-arrow'} />{' '}
-            </Link>
-            <Link
-              isExternal
-              className={`${buttonStyles()} bg-theme-gradient h-14 w-14 min-w-14 gap-2 rounded-full p-2 text-sm font-bold text-theme-neutral`}
-              href={siteConfig.links.docs}
-            >
-              <span className={'memicon-arrow'} />{' '}
-            </Link>
-            <Link
-              isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 text-sm font-bold text-theme-disabled`}
+              className={`${buttonStyles()} bg-theme-gradient min-h-10 w-fit gap-2 rounded-full px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -78,7 +65,22 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border-0 bg-theme-disabled-background p-2 text-sm font-bold text-theme-disabled`}
+              className={`${buttonStyles()} bg-theme-gradient h-14 w-14 min-w-14 gap-2 rounded-full p-2 font-raleway text-sm font-bold text-theme-neutral`}
+              href={siteConfig.links.docs}
+            >
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 font-raleway text-sm font-bold text-theme-disabled`}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border-0 bg-theme-disabled-background p-2 font-raleway text-sm font-bold text-theme-disabled`}
               href={siteConfig.links.docs}
             >
               <span className={'memicon-arrow'} />{' '}
@@ -88,7 +90,7 @@ export default function UikitPage() {
           <div className={'flex flex-wrap gap-2'}>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border border-theme-neutral bg-transparent px-6 text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -96,14 +98,14 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border border-theme-neutral bg-transparent p-2 text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border border-theme-neutral bg-transparent p-2 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               <span className={'memicon-arrow'} />{' '}
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -111,7 +113,7 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.links.docs}
             >
               <span className={'memicon-arrow'} />{' '}
@@ -121,7 +123,7 @@ export default function UikitPage() {
           <div className={'flex flex-wrap gap-2'}>
             <Link
               isExternal
-              className={`${buttonStyles()} bg-theme-gradient-neutral min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} bg-theme-gradient-neutral min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -129,7 +131,7 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} bg-theme-gradient-neutral h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} bg-theme-gradient-neutral h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.links.docs}
             >
               <span className={'memicon-arrow'} />{' '}

@@ -1,3 +1,6 @@
+.themed-radio {
+    @apply font-raleway;
+}
 .themed-radio  > div {
     @apply ml-0;
 }
