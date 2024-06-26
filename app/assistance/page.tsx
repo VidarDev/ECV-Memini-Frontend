@@ -125,7 +125,7 @@ export default function Home() {
               </span>
               <span className="text-center font-raleway text-sm font-normal text-theme-neutral">
                 Si un contact avec un <span className="font-bold">tabacologue</span> est demandé, le
-                service devient <span className="font-bold">payant</span> (prix d'un appel non
+                service devient <span className="font-bold">payant</span> (prix d&apos;un appel non
                 surtaxé)
               </span>
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
                 7/7j - 24/24h
               </span>
               <span className="text-center font-raleway text-sm font-normal text-theme-neutral">
-                Coût d'une communication locale. Ce service permet une écoute des personnes en
+                Coût d&apos;une communication locale. Ce service permet une écoute des personnes en
                 grande <span className="font-bold">souffrance psychologique</span> ou confrontées au
                 <span className="font-bold">suicide</span> , et de leur entourage.
               </span>

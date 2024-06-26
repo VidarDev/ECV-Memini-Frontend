@@ -77,7 +77,7 @@ export default function Albums() {
             className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
             href={'tel:+33606060606'}
           >
-            J{"'"}appelle un spécialiste
+            J&apos;appelle un spécialiste
             <span className={'memicon-arrow'} />
           </Link>
         </div>

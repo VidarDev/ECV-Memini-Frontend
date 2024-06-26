@@ -21,7 +21,7 @@ export default function Home() {
           </Link>
           <div className={'relative w-fit'}>
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
-              J{"'"}invite un proche
+              J&apos;invite un proche
             </h1>
             {/* TODO : replace */}
           </div>

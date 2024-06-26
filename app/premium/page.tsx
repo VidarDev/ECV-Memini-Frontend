@@ -31,7 +31,7 @@ export default function Home() {
               endColor={'var(--theme-neutral-invert)'}
             />
             <h1 className={'w-fit max-w-64 font-pangaia text-5xl font-bold leading-10'}>
-              J{"'"}invite un proche
+              J&apos;invite un proche
             </h1>
             {/* TODO : replace */}
           </div>
