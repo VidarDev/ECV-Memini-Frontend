@@ -1,5 +1,6 @@
 'use client';
 
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -7,7 +8,6 @@ import { button as buttonStyles } from '@nextui-org/theme';
 import { Link } from '@nextui-org/link';
 import React from 'react';
 import PreniumIcons from '@/components/images/premiumIcons';
-import { siteConfig } from '@/config/site';
 
 export default function Home() {
   const { user, loading } = useAuth();
@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -41,7 +41,7 @@ export default function Home() {
         />
         {/*<BgShape className={'absolute left-0 top-0 h-auto w-full'} />*/}
         <div className={'mb-36 mt-8 flex flex-col gap-8 px-4'}>
-          <Link className={`px-4 text-theme-neutral`} href={'/uikit'}>
+          <Link className={`px-4 text-theme-neutral`} href={siteConfig.href.profile}>
             <span className={'memicon-arrow-left text-5xl text-theme-neutral-invert'}></span>
           </Link>
           <div className={'relative w-fit'}>

@@ -1,5 +1,6 @@
 'use client';
 
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { button as buttonStyles } from '@nextui-org/theme';
@@ -13,7 +14,7 @@ export default function Albums() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -146,7 +147,7 @@ export default function Albums() {
           <Link
             isExternal
             className={`${buttonStyles()} mt-[40px] min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
-            href={'/uikit'}
+            href={siteConfig.href.uikit}
           >
             Tous mes badges
             <span className={'memicon-arrow'} />{' '}

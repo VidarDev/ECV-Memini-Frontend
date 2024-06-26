@@ -4,6 +4,7 @@
 
 import { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
+import { siteConfig } from '@/config/site';
 
 interface User {
   username: string;
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     localStorage.removeItem('username');
     setUser(null);
-    router.push('/login');
+    router.push(siteConfig.href.auth);
   };
 
   return (

@@ -5,6 +5,7 @@ import { Link } from '@nextui-org/link';
 import React from 'react';
 import ThreeIcons from '@/components/images/threeIcons';
 import AddIcons from '@/components/images/AddIcons';
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -15,7 +16,7 @@ export default function AlbumsScreen() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -61,7 +62,7 @@ export default function AlbumsScreen() {
               >
                 <Link
                   className={`-m-4 flex min-h-full w-full min-w-full flex-1 gap-2 bg-transparent *:w-full *:!max-w-full`}
-                  href={'/uikit'}
+                  href={siteConfig.href.uikit}
                 >
                   <div className={'absolute flex min-h-full min-w-full *:w-full *:!max-w-full'}>
                     <Image
@@ -91,7 +92,7 @@ export default function AlbumsScreen() {
               >
                 <Link
                   className={`flex min-h-full w-full min-w-full flex-1 gap-2 bg-transparent *:w-full *:!max-w-full`}
-                  href={'/uikit'}
+                  href={siteConfig.href.uikit}
                 >
                   <div className={'absolute flex min-h-full min-w-full *:w-full *:!max-w-full'}>
                     <Image
@@ -117,7 +118,7 @@ export default function AlbumsScreen() {
               >
                 <Link
                   className={`flex min-h-full w-full min-w-full flex-1 gap-2 bg-transparent *:w-full *:!max-w-full`}
-                  href={'/uikit'}
+                  href={siteConfig.href.uikit}
                 >
                   <div className={'absolute flex min-h-full min-w-full *:w-full *:!max-w-full'}>
                     <Image
@@ -138,7 +139,7 @@ export default function AlbumsScreen() {
             <div className={'w-1/2 px-2'}>
               <Link
                 className={`app-min-h-card theme-shadow relative flex min-h-full w-full min-w-full flex-1 flex-col gap-4 rounded-2xl bg-theme-neutral-invert p-4 text-[102px] *:w-full *:!max-w-full`}
-                href={'/uikit'}
+                href={siteConfig.href.uikit}
               >
                 <AddIcons
                   className={'h-[24px] w-[24px]'}

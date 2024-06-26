@@ -4,9 +4,21 @@ import { Navbar as NextUINavbar } from '@nextui-org/navbar';
 import { Link } from '@nextui-org/link';
 import React from 'react';
 import NavIcons from '@/components/images/NavIcons';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+import { siteConfig } from '@/config/site';
 
 export const ThemedNavbar = () => {
+  const splitPathname = usePathname().split('/');
+
+  if (splitPathname[1] === 'auth') {
+    return null;
+  }
+
+  if (splitPathname[1] === 'albums' && splitPathname[2] === 'create') {
+    return null;
+  }
+
   return (
     <>
       <NextUINavbar className={'themed-navbar bg-transparent backdrop-filter-none'}>
@@ -19,10 +31,13 @@ export const ThemedNavbar = () => {
             <div className={'flex gap-6'}>
               <li className={'flex'}>
                 <Link
-                  className={
-                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                  }
-                  href="/"
+                  className={clsx(
+                    splitPathname[1] === ''
+                      ? '!text-theme-primary *:!text-theme-primary after:!bg-theme-primary'
+                      : '',
+                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary',
+                  )}
+                  href={siteConfig.href.home}
                 >
                   <span
                     className={
@@ -33,10 +48,13 @@ export const ThemedNavbar = () => {
               </li>
               <li className={'flex'}>
                 <Link
-                  className={
-                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                  }
-                  href="/albums"
+                  className={clsx(
+                    splitPathname[1] === 'albums'
+                      ? '!text-theme-primary *:!text-theme-primary after:!bg-theme-primary'
+                      : '',
+                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary',
+                  )}
+                  href={siteConfig.href.albums}
                 >
                   <span
                     className={
@@ -61,10 +79,13 @@ export const ThemedNavbar = () => {
             <div className={'flex gap-6'}>
               <li className={'flex'}>
                 <Link
-                  className={
-                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                  }
-                  href="/rewards"
+                  className={clsx(
+                    splitPathname[1] === 'rewards'
+                      ? '!text-theme-primary *:!text-theme-primary after:!bg-theme-primary'
+                      : '',
+                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary',
+                  )}
+                  href={siteConfig.href.rewards}
                 >
                   <span
                     className={
@@ -75,10 +96,13 @@ export const ThemedNavbar = () => {
               </li>
               <li className={'flex'}>
                 <Link
-                  className={
-                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                  }
-                  href="/profile"
+                  className={clsx(
+                    splitPathname[1] === 'profile'
+                      ? '!text-theme-primary *:!text-theme-primary after:!bg-theme-primary'
+                      : '',
+                    'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary',
+                  )}
+                  href={siteConfig.href.profile}
                 >
                   <span
                     className={

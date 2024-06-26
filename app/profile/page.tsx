@@ -1,5 +1,6 @@
 'use client';
 
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -17,7 +18,7 @@ export default function Albums() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -115,13 +116,13 @@ export default function Albums() {
             </div>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/settings'}
+              href={siteConfig.href.settings}
             >
               Paramètres
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/reminders'}
+              href={siteConfig.href.reminders}
             >
               Rappels
             </Link>
@@ -136,19 +137,19 @@ export default function Albums() {
             </div>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/premium'}
+              href={siteConfig.href.premium}
             >
               Passer au premium
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'#'}
+              href={siteConfig.href.profile}
             >
               Restaurer un achat
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/invite'}
+              href={siteConfig.href.invite}
             >
               Inviter un proche à collaborder
             </Link>
@@ -163,13 +164,13 @@ export default function Albums() {
             </div>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/faq'}
+              href={siteConfig.href.faq}
             >
               F.A.Q
             </Link>
             <Link
               className={`font-raleway text-sm font-normal leading-tight text-theme-neutral`}
-              href={'/assistance'}
+              href={siteConfig.href.assistance}
             >
               Assistance
             </Link>
@@ -206,7 +207,7 @@ export default function Albums() {
         <Link
           isExternal
           className={`${buttonStyles()} mt-6 min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
-          href={'/uikit'}
+          href={siteConfig.href.uikit}
         >
           Me déconnecter
           <span className={'memicon-arrow'} />

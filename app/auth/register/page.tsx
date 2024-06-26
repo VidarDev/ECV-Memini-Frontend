@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Input } from '@nextui-org/input';
 import { button as buttonStyles } from '@nextui-org/theme';
-import '../../styles/globals.css';
 
 // Définir le type pour les thèmes de couleur
 type ColorTheme = 'URANUS' | 'SATURN' | 'JUPITER' | 'VENUS';
@@ -52,7 +51,7 @@ const Signup = () => {
     const birthDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
     try {
-      const response = await fetch('http://192.168.1.101:8080/register', {
+      const response = await fetch(`${process.env.BACK_URL}/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
