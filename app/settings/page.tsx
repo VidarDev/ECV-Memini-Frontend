@@ -14,7 +14,9 @@ export default function Home() {
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <span className={'memicon-arrow px-4 text-5xl'}></span>
+          <Link className={`px-4 text-theme-neutral`} href={'/uikit'}>
+            <span className={'memicon-arrow text-5xl'}></span>
+          </Link>
           <div className={'relative w-fit'}>
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Paramètres</h1>
             {/* TODO : replace */}
