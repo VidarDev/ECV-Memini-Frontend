@@ -1,195 +1,231 @@
 import { Link } from '@nextui-org/link';
 import { button as buttonStyles } from '@nextui-org/theme';
 import { Input } from '@nextui-org/input';
+import React from 'react';
+import { RadioGroup } from '@nextui-org/radio';
+import { Progress } from '@nextui-org/progress';
+import { CheckboxGroup } from '@nextui-org/checkbox';
+import { Slider } from '@nextui-org/slider';
 
 import { title } from '@/components/primitives';
 import { siteConfig } from '@/config/site';
+import ThemedRadio from '@/components/ThemedRadio';
+import ThemedRadioImages from '@/components/ThemedRadioImage';
+import ThemedCheckbox from '@/components/ThemedCheckbox';
+import ThemedCheckboxImage from '@/components/ThemedCheckboxImage';
+import ThemedSelect from '@/components/ThemedSelect';
+import ThemedTextarea from '@/components/ThemedTextarea';
+import ThemedSwitch from '@/components/ThemedSwitch';
 
 export default function UikitPage() {
   return (
-    <div>
-      <h1 className={title()}>Pricing</h1>
-      <h2 className={'text-lg text-theme-neutral'}>Buttons</h2>
-      <h3 className={'text-sm text-theme-neutral'}>Primary</h3>
-      <div className={'flex flex-wrap gap-2'}>
-        <Link
-          isExternal
-          className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-primary px-6 text-sm font-bold text-theme-neutral`}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-primary p-2 text-sm font-bold text-theme-neutral`}
-          href={siteConfig.links.docs}
-        >
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} bg-theme-gradient min-h-10 w-fit gap-2 rounded-full bg-theme-primary px-6 text-sm font-bold text-theme-neutral`}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} bg-theme-gradient h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-primary p-2 text-sm font-bold text-theme-neutral`}
-          href={siteConfig.links.docs}
-        >
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 text-sm font-bold text-theme-disabled`}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border-0 bg-theme-disabled-background p-2 text-sm font-bold text-theme-disabled`}
-          href={siteConfig.links.docs}
-        >
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-      </div>
-      <h3 className={'text-sm text-theme-neutral'}>Secondary</h3>
-      <div className={'flex flex-wrap gap-2'}>
-        <Link
-          isExternal
-          className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border border-theme-neutral bg-transparent px-6 text-sm font-bold text-theme-neutral`}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border border-theme-neutral bg-transparent p-2 text-sm font-bold text-theme-neutral`}
-          href={siteConfig.links.docs}
-        >
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 text-sm font-bold text-theme-neutral-invert`}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 text-sm font-bold text-theme-neutral-invert`}
-          href={siteConfig.links.docs}
-        >
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-      </div>
-      <h3 className={'text-sm text-theme-neutral'}>Neutral</h3>
-      <div className={'flex flex-wrap gap-2'}>
-        <Link
-          isExternal
-          className={`${buttonStyles()} bg-theme-gradient-neutral min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 text-sm font-bold text-theme-neutral-invert`}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-        <Link
-          isExternal
-          className={`${buttonStyles()} bg-theme-gradient-neutral h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 text-sm font-bold text-theme-neutral-invert`}
-          href={siteConfig.links.docs}
-        >
-          <span className={'memicon-arrow'} />{' '}
-        </Link>
-      </div>
-      <h3 className={'text-sm text-theme-neutral'}>Secondary</h3>
-      <div className={'flex flex-wrap gap-2'}>
-        <Input className={'themed-input'} label="Email" type="email" />
-      </div>
-      <h3 className={'text-sm text-theme-neutral'}>Radio</h3>
-      <div className={'flex flex-wrap gap-2'}></div>
-      <nav
+    <>
+      <section
         className={
-          'bottom-navbar fixed bottom-4 left-1/2 z-50 flex min-h-16 -translate-x-1/2 rounded-full bg-theme-neutral-invert text-theme-neutral-background shadow-lg'
+          'relative flex min-h-[250px] flex-col rounded-b-[80px] bg-theme-primary-200 px-4'
         }
       >
-        <ul className={'relative flex w-full justify-center gap-2 px-6 pb-1.5 pt-4'}>
-          <div className={'flex gap-6'}>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/uikit"
-              >
-                <span
-                  className={
-                    'memicon-home text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/about"
-              >
-                <span
-                  className={
-                    'memicon-albums text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
+        <div className={'mb-20 mt-8 flex flex-col gap-8'}>
+          <Link className={`px-4 text-theme-neutral`} href={'/'}>
+            <span className={'memicon-arrow-left text-5xl'}></span>
+          </Link>
+          <div className={'relative w-fit'}>
+            <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>UI KIT</h1>
+            {/* TODO : replace */}
           </div>
-          <div className={'flex h-full min-w-20 justify-center'}>
-            <li className={'absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-1/2'}>
-              <Link href="/services">
-                <span className={'memicon-add-color pl-0.5 text-[3rem] text-theme-neutral'} />
-              </Link>
-            </li>
+        </div>
+      </section>
+      <section className={'relative mt-8 flex flex-col items-center justify-center px-4 pb-36'}>
+        <div>
+          <h2 className={'text-lg text-theme-neutral'}>Buttons</h2>
+          <h3 className={'text-sm text-theme-neutral'}>Primary</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <Link
+              isExternal
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-primary p-2 font-raleway text-sm font-bold text-theme-neutral`}
+              href={siteConfig.links.docs}
+            >
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} bg-theme-gradient min-h-10 w-fit gap-2 rounded-full px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} bg-theme-gradient h-14 w-14 min-w-14 gap-2 rounded-full p-2 font-raleway text-sm font-bold text-theme-neutral`}
+              href={siteConfig.links.docs}
+            >
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 font-raleway text-sm font-bold text-theme-disabled`}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border-0 bg-theme-disabled-background p-2 font-raleway text-sm font-bold text-theme-disabled`}
+              href={siteConfig.links.docs}
+            >
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
           </div>
-          <div className={'flex gap-6'}>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/contact"
-              >
-                <span
-                  className={
-                    'memicon-star text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
-            <li className={'flex'}>
-              <Link
-                className={
-                  'group flex flex-col gap-1 after:h-[5px] after:w-[5px] after:rounded-full after:bg-transparent hover:after:bg-theme-primary'
-                }
-                href="/profile"
-              >
-                <span
-                  className={
-                    'memicon-user text-[2rem] text-theme-neutral group-hover:text-theme-primary'
-                  }
-                />
-              </Link>
-            </li>
+          <h3 className={'text-sm text-theme-neutral'}>Secondary</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <Link
+              isExternal
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full border border-theme-neutral bg-transparent p-2 font-raleway text-sm font-bold text-theme-neutral`}
+              href={siteConfig.links.docs}
+            >
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              href={siteConfig.links.docs}
+            >
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
           </div>
-        </ul>
-      </nav>
-    </div>
+          <h3 className={'text-sm text-theme-neutral'}>Neutral</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <Link
+              isExternal
+              className={`${buttonStyles()} bg-theme-gradient-neutral min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              href={siteConfig.links.docs}
+            >
+              Documentation
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+            <Link
+              isExternal
+              className={`${buttonStyles()} bg-theme-gradient-neutral h-14 w-14 min-w-14 gap-2 rounded-full bg-theme-neutral p-2 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              href={siteConfig.links.docs}
+            >
+              <span className={'memicon-arrow'} />{' '}
+            </Link>
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Secondary</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <Input className={'themed-input'} label="Email" type="email" />
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Radio</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <RadioGroup className={'w-full'} label="">
+              <ThemedRadio value="free">Free</ThemedRadio>
+              <ThemedRadio value="pro">Pro</ThemedRadio>
+              <ThemedRadio value="enterprise">Enterprise</ThemedRadio>
+            </RadioGroup>
+          </div>
+          <div className={'flex flex-wrap gap-2'}>
+            <RadioGroup className={'w-full'} label="">
+              <ThemedRadioImages value="free">
+                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+              </ThemedRadioImages>
+              <ThemedRadioImages value="pro">
+                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+              </ThemedRadioImages>
+              <ThemedRadioImages value="enterprise">
+                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+              </ThemedRadioImages>
+            </RadioGroup>
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Progress</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <Progress
+              isIndeterminate
+              aria-label="Downloading..."
+              className="themed-progress w-full"
+              size="md"
+              // value="50"
+            />
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Checkbox</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <CheckboxGroup className={'w-full'} label="">
+              <ThemedCheckbox value="free">Free</ThemedCheckbox>
+              <ThemedCheckbox value="pro">Pro</ThemedCheckbox>
+              <ThemedCheckbox value="enterprise">Enterprise</ThemedCheckbox>
+            </CheckboxGroup>
+          </div>
+          <div className={'flex flex-wrap gap-2'}>
+            <CheckboxGroup className={'w-full'} label="">
+              <ThemedCheckboxImage value="free">
+                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+              </ThemedCheckboxImage>
+              <ThemedCheckboxImage value="okfoo">
+                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+              </ThemedCheckboxImage>
+              <ThemedCheckboxImage value="ekfoekf">
+                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+              </ThemedCheckboxImage>
+            </CheckboxGroup>
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Checkbox</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <ThemedSelect
+              isRequired
+              defaultSelectedKeys={['tiger']}
+              disabledKeys={['zebra']}
+              label={'Les'}
+              placeholder="Select an animal"
+              selectionMode="multiple"
+            />
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Textarea</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <ThemedTextarea label="Description" placeholder="Enter your description" />
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Slider</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <Slider
+              size="md"
+              aria-label="Temperature"
+              className="themed-slider"
+              defaultValue={0.7}
+              maxValue={1}
+              minValue={0}
+              step={0.01}
+            />
+          </div>
+          <h3 className={'text-sm text-theme-neutral'}>Slider</h3>
+          <div className={'flex flex-wrap gap-2'}>
+            <ThemedSwitch />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

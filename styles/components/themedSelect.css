@@ -1,0 +1,31 @@
+.themed-select {
+    @apply font-raleway;;
+}
+.themed-select [data-slot='trigger'] {
+    @apply !bg-theme-neutral-background data-[hover=true]:bg-theme-neutral-background data-[focus=true]:border-theme-primary data-[hover=true]:border-theme-primary p-2 data-[focus=true]:bg-theme-neutral-background border border-theme-primary-light gap-2 min-h-12 h-0;
+}
+.themed-select [data-slot='trigger'] [data-slot='label'] {
+    @apply !bg-theme-neutral-background text-xs font-normal text-theme-neutral placeholder:text-theme-neutral px-0 transition-all;
+}
+.themed-select [data-slot='trigger'] [data-slot='label']:after {
+    @apply !text-theme-primary-hover;
+}
+.themed-select [data-slot='trigger'] [data-slot='innerWrapper'] {
+    @apply h-fit !p-0;
+}
+.themed-select [data-slot='trigger'] [data-slot='innerWrapper'] [data-slot='value'] {
+    @apply text-sm font-normal text-theme-neutral placeholder:text-theme-neutral;
+}
+.themed-select[data-filled="true"] [data-slot='trigger'] {
+    @apply !border-theme-primary;
+}
+.themed-select[data-has-value="true"] [data-slot='trigger'] [data-slot='label'],
+.themed-select[data-filled="true"] [data-slot='trigger'] [data-slot='label'] {
+    @apply !scale-100 px-2 top-0 text-theme-neutral;
+}
+[data-slot='popover'] [data-slot='content'] {
+    @apply !bg-theme-neutral-invert border border-theme-primary-light;
+}
+[data-slot='popover'] [data-slot='content'] [data-slot='listbox'] {
+    @apply gap-2;
+}

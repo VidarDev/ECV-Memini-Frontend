@@ -1,0 +1,17 @@
+.themed-radio-image {
+    @apply font-raleway;
+
+}
+.themed-radio-image  > div {
+    @apply ml-0;
+}
+.themed-radio-image  > div > span {
+    @apply text-theme-neutral text-sm font-normal;
+}
+.themed-radio-image  > span {
+    @apply !hidden;
+}
+.themed-radio-image img,
+.themed-radio-image .img {
+    @apply rounded-full;
+}

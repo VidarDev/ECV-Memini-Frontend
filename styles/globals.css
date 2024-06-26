@@ -1,15 +1,24 @@
 @import "themes.css";
-@import "themedinput.css";
+@import "components/themedNavbar.css";
+@import "components/themedInput.css";
+@import "components/themedRadio.css";
+@import "components/themedRadioImage.css";
+@import "components/themedCheckbox.css";
+@import "components/themedCheckboxImage.css";
+@import "components/themedprogress.css";
+@import "components/themedSelect.css";
+@import "components/themedTextarea.css";
+@import "components/themedSlider.css";
+@import "components/themedAccordion.css";
 @import "memicon.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply !bg-theme-neutral-background;
+.theme-shadow {
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
 }
-
 .bg-theme-gradient {
     background-color: var(--theme-primary);
     background: linear-gradient(73deg, var(--theme-primary) 27.95%, var(--theme-secondary) 134.46%);
@@ -23,6 +32,57 @@ body {
 .bg-theme-gradient-neutral {
     background-color: var(--theme-neutral);
     background: linear-gradient(262deg, var(--theme-neutral-invert) -48.94%, var(--theme-neutral) 91.45%);
+}
+
+.app-translate-y {
+    --tw-translate-y: -5.625rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.app-translate-y-2 {
+    --tw-translate-y: -6.75rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.app-translate-y-3 {
+    --tw-translate-y: -4.375rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.app-min-h-card {
+    min-height: clamp(8.25rem, 20vh, 10rem);
+}
+
+.app-bg-avatar {
+    display: inline-flex;
+}
+.app-bg-avatar:before {
+    content: ' ';
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    background: var(--theme-neutral-invert);
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 1em;
+    height: 1.21em;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='122' viewBox='0 0 104 122' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M104 122V0H46.1561C7.15614 19 -5.2448 62.8343 1.93185 90.7179C9.1592 118.799 43.3897 119.538 74.342 120.207C85.0355 120.439 95.3378 120.661 104 122Z' fill='%23FDFBF8'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='122' viewBox='0 0 104 122' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M104 122V0H46.1561C7.15614 19 -5.2448 62.8343 1.93185 90.7179C9.1592 118.799 43.3897 119.538 74.342 120.207C85.0355 120.439 95.3378 120.661 104 122Z' fill='%23FDFBF8'/%3E%3C/svg%3E");
+}
+
+.app-album-home:after {
+    content: '';
+    position: absolute;
+    right: -0.5rem;
+    bottom: -0.25rem;
+    display: block;
+    background: var(--theme-neutral-bg);
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 1em;
+    height: 0.56em;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='102' height='68' viewBox='0 0 102 68' fill='none'%3E%3Cg clip-path='url(%23clip0_976_1547)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M92.1329 57.5314C94.635 55.8596 96.9034 53.1649 98.3624 50.3345H98.3594C98.3757 50.3025 98.412 50.2898 98.4438 50.3025L101.958 51.7251C101.994 51.74 102.011 51.7818 101.994 51.8168C98.0953 60.3536 89.4576 68.1111 83.3568 67.9866C78.5211 67.8956 77.3144 64.5097 78.3117 59.5326C78.3117 59.5326 78.9924 56.3972 79.2306 55.2997C79.2469 55.2259 79.1492 55.1856 79.1086 55.2497C73.9636 63.3719 67.6446 67.9933 61.2878 67.9933C54.1653 67.88 52.0175 62.791 52.8683 55.6553C52.8772 55.5838 52.784 55.551 52.7455 55.6114C47.716 63.5217 41.5213 68 35.1934 68H35.1867C32.0571 68 29.7007 67.0053 28.1811 65.0682C25.98 62.2616 26.3448 54.0291 27.8962 47.44C27.9739 47.1112 28.0494 46.7719 28.1263 46.4237C28.3224 45.5409 28.531 44.5999 28.824 43.6179L34.9218 18.2359C36.4607 11.8689 35.6424 9.92509 35.2207 9.38227C35.052 9.15932 34.7724 8.91103 34.091 8.91103C31.773 8.91103 28.4615 11.9018 25.4555 16.7178C22.0203 22.2213 19.2481 29.439 17.6575 37.0489C17.6057 37.2703 17.036 39.968 16.4855 42.5777C15.9943 44.9034 15.5178 47.1604 15.4357 47.5317C15.429 47.563 15.4024 47.5846 15.3706 47.5846H1.35193C1.30606 47.5846 1.2735 47.5384 1.28904 47.4944C3.67949 40.7785 6.27266 28.2698 8.3213 18.3872C8.92576 15.4703 9.4836 12.7823 9.97412 10.5402C9.9867 10.4813 9.9216 10.4358 9.87129 10.4694C7.36912 12.1411 5.10074 14.8358 3.64176 17.6662C3.62548 17.6975 3.58923 17.7102 3.55742 17.6975L0.0431332 16.2741C0.00688064 16.2592 -0.00939603 16.2175 0.00688064 16.1824C3.90588 7.64569 12.5436 -0.111845 18.6452 0.0126757C23.4808 0.104388 24.6868 3.48955 23.6902 8.46663C23.6902 8.46663 23.0095 11.602 22.7713 12.6996C22.755 12.7734 22.8527 12.8137 22.8934 12.7495C28.0383 4.62738 34.3573 0.00596504 40.7141 0.00596504C47.8359 0.119301 49.9844 5.20823 49.1343 12.3447C49.1254 12.4162 49.2187 12.449 49.2571 12.3886C54.2866 4.47826 60.4518 0 66.7797 0C75.7963 0.212505 76.9793 7.41306 74.7893 16.896L71.5887 28.2594L71.5458 28.4167C69.8101 34.8075 68.3253 40.2745 66.7057 49.7335C65.596 55.5495 66.3617 58.0749 66.7834 58.6177C66.9521 58.8407 67.2318 59.089 67.9132 59.089C70.2311 59.089 73.5427 56.0983 76.5487 51.2822C79.9838 45.7787 82.756 38.561 84.3467 30.9511C84.3926 30.7483 84.9297 28.2102 85.4646 25.6765C85.9751 23.2629 86.4841 20.853 86.5685 20.4683C86.5751 20.437 86.6017 20.4154 86.6336 20.4154H100.652C100.698 20.4154 100.731 20.4616 100.715 20.5056C98.3247 27.2215 95.7315 39.7302 93.6828 49.6135C93.0776 52.5304 92.5205 55.2184 92.03 57.4605C92.0174 57.5194 92.0826 57.5649 92.1329 57.5314ZM41.3955 59.0569C41.6508 59.0979 41.9119 59.0808 42.1649 59.0278C48.0719 57.7864 53.3944 46.751 56.2731 37.878C57.6049 33.7771 61.1021 18.2433 61.1021 18.2433C62.4916 12.3409 62.0565 10.1816 61.4461 9.40315C61.2649 9.17424 60.9593 8.91252 60.1803 8.91252C57.8682 8.91252 54.5766 11.9032 51.5899 16.7126C49.3311 20.3475 47.9128 24.0839 46.6551 28.9305C45.916 32.1672 41.2076 49.7313 41.2076 49.7313C39.8181 55.6337 39.9469 57.8192 40.5573 58.5976C40.7008 58.7788 40.922 58.9809 41.3948 59.0569H41.3955ZM94.1245 15.0498C102.349 15.0498 102.349 3.92574 94.1245 3.92574C85.8996 3.92574 85.8996 15.0498 94.1245 15.0498Z' fill='%23FFEAD9'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_976_1547'%3E%3Crect width='102' height='68' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
 }
 
 .bottom-navbar:before {

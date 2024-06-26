@@ -1,13 +1,12 @@
 import '@/styles/globals.css';
 import { Metadata, Viewport } from 'next';
-import { Link } from '@nextui-org/link';
 import clsx from 'clsx';
+import { ScrollShadow } from '@nextui-org/scroll-shadow';
 
 import { Providers } from './providers';
 
 import { siteConfig } from '@/config/site';
-import { fontSans } from '@/config/fonts';
-import { Navbar } from '@/components/navbar';
+import { ThemedNavbar } from '@/components/ThemedNavbar';
 
 export const metadata: Metadata = {
   title: {
@@ -48,24 +47,26 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning className={'bg-theme-neutral-background'} lang="en">
       <head />
-      <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={clsx(
+          'min-h-screen overflow-y-hidden bg-transparent font-pangaia text-theme-neutral antialiased',
+        )}
+      >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <div className="relative flex h-screen flex-col">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">{children}</main>
-            <footer className="flex w-full items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">NextUI</p>
-              </Link>
-            </footer>
+          <ThemedNavbar />
+          <div className="relative flex min-h-screen flex-col">
+            <ScrollShadow
+              hideScrollBar
+              className="relative flex max-h-screen min-h-screen flex-col"
+              size={48}
+            >
+              <main className="container mx-auto max-w-[756px] flex-grow">{children}</main>
+              <footer className="hidden w-full items-center justify-center py-3">
+                <span className="text-theme-neutral">Powered by Memini</span>
+              </footer>
+            </ScrollShadow>
           </div>
         </Providers>
       </body>

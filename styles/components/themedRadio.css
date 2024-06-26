@@ -1,0 +1,19 @@
+.themed-radio {
+    @apply font-raleway;
+}
+.themed-radio  > div {
+    @apply ml-0;
+}
+.themed-radio  > div > span {
+    @apply text-theme-neutral text-sm font-normal;
+}
+.themed-radio  > span[aria-hidden] {
+    @apply border-0 bg-theme-neutral-background;
+}
+.themed-radio[data-selected=true]  > span[aria-hidden] {
+    background: var(--theme-neutral-invert) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12L12 16L18 6' stroke='%232C2829' stroke-width='3'/%3E%3C/svg%3E") center center/cover no-repeat;
+    @apply border-0;
+}
+.themed-radio  > span[aria-hidden] > span {
+    @apply !hidden;
+}

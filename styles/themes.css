@@ -3,6 +3,8 @@
     --theme-neutral-invert: #FDFBF8;
     --theme-neutral-bg: #FFEAD9;
     --theme-primary: #FF6819;
+    --theme-primary-200: #FFD0B8;
+    --theme-primary-400: #FF8A4C;
     --theme-primary-light: #FFAB80;
     --theme-primary-hover: #B23D00;
     --theme-secondary: #FFF491;
@@ -23,6 +25,8 @@
     --theme-neutral-invert: #FDFBF8;
     --theme-neutral-bg: #FFEAD9;
     --theme-primary: #FF6819;
+    --theme-primary-200: #FFD0B8;
+    --theme-primary-400: #FF8A4C;
     --theme-primary-light: #FFAB80;
     --theme-primary-hover: #B23D00;
     --theme-secondary: #FFF491;
@@ -43,6 +47,8 @@
     --theme-neutral-invert: #FDFBF8;
     --theme-neutral-bg: #FFEAD9;
     --theme-primary: #FF6819;
+    --theme-primary-200: #FFD0B8;
+    --theme-primary-400: #FF8A4C;
     --theme-primary-light: #FFAB80;
     --theme-primary-hover: #B23D00;
     --theme-secondary: #FFF491;

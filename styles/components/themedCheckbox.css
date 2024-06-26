@@ -1,0 +1,30 @@
+.themed-checkbox {
+    @apply font-raleway
+}
+
+.themed-checkbox  > div {
+    @apply ml-0;
+}
+
+.themed-checkbox  > div > span {
+    @apply text-theme-neutral text-sm font-normal;
+}
+
+.themed-checkbox  > span[aria-hidden] {
+    @apply !border-0 mr-0 bg-theme-neutral-background;
+}
+
+.themed-checkbox  > span[aria-hidden]:after,
+.themed-checkbox  > span[aria-hidden]:before,
+.themed-checkbox  > span[aria-hidden] svg {
+    @apply !hidden !pointer-events-none;
+}
+
+.themed-checkbox[data-selected=true]  > span[aria-hidden] {
+    background: var(--theme-neutral-invert) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12L12 16L18 6' stroke='%232C2829' stroke-width='3'/%3E%3C/svg%3E") center center/cover no-repeat;
+    @apply border-0;
+}
+
+.themed-checkbox  > span[aria-hidden] > span {
+    @apply !hidden;
+}
