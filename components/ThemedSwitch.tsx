@@ -9,7 +9,7 @@ export default function ThemedSwitch(props: any) {
     <Switch
       classNames={{
         wrapper:
-          'p-0 h-4 bg-theme-neutral-invert overflow-visible group-data-[selected=true]:bg-theme-primary-light',
+          'p-0 h-4 bg-theme-neutral-invert overflow-visible group-data-[selected=true]:bg-theme-primary-200',
         thumb: cn(
           'bg-red-500 border-0 w-6 h-6 bg-theme-gradient shadow-lg',
           //selected

@@ -13,3 +13,7 @@
 .themed-slider [data-slot="track-wrapper"] [data-slot="track"] [data-slot="thumb"]:after {
     @apply hidden;
 }
+
+.themed-slider.two-value [data-slot="track-wrapper"] [data-slot="track"] {
+    @apply bg-theme-neutral-invert h-4 border-s-theme-neutral-invert;
+}
