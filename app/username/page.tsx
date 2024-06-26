@@ -2,6 +2,7 @@
 
 'use client';
 
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useState, FormEvent } from 'react';

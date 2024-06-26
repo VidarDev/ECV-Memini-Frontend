@@ -1,5 +1,6 @@
 'use client';
 
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -12,7 +13,7 @@ export default function AssistanceScreens() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -32,7 +33,7 @@ export default function AssistanceScreens() {
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <Link className={`px-4 text-theme-neutral`} href={'/profile'}>
+          <Link className={`px-4 text-theme-neutral`} href={siteConfig.href.profile}>
             <span className={'memicon-arrow-left text-5xl'}></span>
           </Link>
           <div className={'relative w-fit'}>
@@ -52,7 +53,7 @@ export default function AssistanceScreens() {
               'relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-6 py-4'
             }
           >
-            <Link href={'/uikit'} className={'flex items-center gap-2'}>
+            <Link href={siteConfig.href.uikit} className={'flex items-center gap-2'}>
               <span className={'memicon-phone text-2xl text-theme-neutral'} />
               <span className={'w-fit font-pangaia text-3xl font-medium text-theme-neutral'}>
                 31 14
@@ -72,7 +73,7 @@ export default function AssistanceScreens() {
               'relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-6 py-4'
             }
           >
-            <Link href={'/uikit'} className={'flex items-center gap-2'}>
+            <Link href={siteConfig.href.uikit} className={'flex items-center gap-2'}>
               <span className={'memicon-phone text-2xl text-theme-neutral'} />
               <span className={'w-fit font-pangaia text-3xl font-medium text-theme-neutral'}>
                 0800 23 13 13
@@ -92,7 +93,7 @@ export default function AssistanceScreens() {
               'relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-6 py-4'
             }
           >
-            <Link href={'/uikit'} className={'flex items-center gap-2'}>
+            <Link href={siteConfig.href.uikit} className={'flex items-center gap-2'}>
               <span className={'memicon-phone text-2xl text-theme-neutral'} />
               <span className={'w-fit font-pangaia text-3xl font-medium text-theme-neutral'}>
                 0 980 980 930
@@ -112,7 +113,7 @@ export default function AssistanceScreens() {
               'relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-6 py-4'
             }
           >
-            <Link href={'/uikit'} className={'flex items-center gap-2'}>
+            <Link href={siteConfig.href.uikit} className={'flex items-center gap-2'}>
               <span className={'memicon-phone text-2xl text-theme-neutral'} />
               <span className={'w-fit font-pangaia text-3xl font-medium text-theme-neutral'}>
                 01 40 44 46 45
@@ -132,7 +133,7 @@ export default function AssistanceScreens() {
               'relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-6 py-4'
             }
           >
-            <Link href={'/uikit'} className={'flex items-center gap-2'}>
+            <Link href={siteConfig.href.uikit} className={'flex items-center gap-2'}>
               <span className={'memicon-phone text-2xl text-theme-neutral'} />
               <span className={'w-fit font-pangaia text-3xl font-medium text-theme-neutral'}>
                 39 89
@@ -157,7 +158,7 @@ export default function AssistanceScreens() {
               'relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-6 py-4'
             }
           >
-            <Link href={'/uikit'} className={'flex items-center gap-2'}>
+            <Link href={siteConfig.href.uikit} className={'flex items-center gap-2'}>
               <span className={'memicon-phone text-2xl text-theme-neutral'} />
               <span className={'w-fit font-pangaia text-3xl font-medium text-theme-neutral'}>
                 01 45 39 40 00

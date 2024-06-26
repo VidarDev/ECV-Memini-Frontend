@@ -1,5 +1,6 @@
 'use client';
 
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { button as buttonStyles } from '@nextui-org/theme';
@@ -13,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -33,7 +34,7 @@ export default function Home() {
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <Link className={`px-4 text-theme-neutral`} href={'/uikit'}>
+          <Link className={`px-4 text-theme-neutral`} href={siteConfig.href.uikit}>
             <span className={'memicon-arrow-left text-5xl'}></span>
           </Link>
           <div className={'relative w-fit'}>
@@ -65,7 +66,7 @@ export default function Home() {
           <div className={'mt-4 flex w-full flex-nowrap items-center gap-4 overflow-x-auto'}>
             <Link
               className={`${buttonStyles()} min-h-10 w-full gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
-              href={'/profile'}
+              href={siteConfig.href.profile}
             >
               Documentation
               <span className={'memicon-arrow'} />{' '}
@@ -78,7 +79,7 @@ export default function Home() {
             <Input className={'themed-input mt-6'} label="Email" type="email" />
             <Link
               className={`${buttonStyles()} bg-theme-gradient-neutral mt-4 min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
-              href={'/uikit'}
+              href={siteConfig.href.uikit}
             >
               Documentation
               <span className={'memicon-arrow'} />{' '}

@@ -1,11 +1,38 @@
-import { Image } from '@nextui-org/image';
-import { button as buttonStyles } from '@nextui-org/theme';
+'use client';
+
 import { siteConfig } from '@/config/site';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import { Image } from '@nextui-org/image';
 import { Link } from '@nextui-org/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import OneIcons from '@/components/images/oneIcons';
 
 export default function Home() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push(siteConfig.href.auth);
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    console.log('loading');
+    return (
+      <p
+        className={'flex h-screen w-screen items-center justify-center text-6xl text-theme-neutral'}
+      >
+        Loading...
+      </p>
+    ); // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
+
   return (
     <>
       <section
@@ -124,7 +151,7 @@ export default function Home() {
               >
                 <Link
                   className={`-m-4 flex min-h-full w-full min-w-full flex-1 gap-2 bg-transparent *:w-full *:!max-w-full`}
-                  href={'/uikit'}
+                  href={siteConfig.href.uikit}
                 >
                   <div className={'absolute flex min-h-full min-w-full *:w-full *:!max-w-full'}>
                     <Image

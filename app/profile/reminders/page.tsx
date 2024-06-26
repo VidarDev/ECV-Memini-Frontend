@@ -1,5 +1,6 @@
 'use client';
 
+import { siteConfig } from '@/config/site';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -15,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -35,7 +36,7 @@ export default function Home() {
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <Link className={`px-4 text-theme-neutral`} href={'/profile'}>
+          <Link className={`px-4 text-theme-neutral`} href={siteConfig.href.profile}>
             <span className={'memicon-arrow-left text-5xl'}></span>
           </Link>
           <div className={'relative w-fit'}>
