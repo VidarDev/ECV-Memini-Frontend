@@ -1,0 +1,31 @@
+.themed-accordion {
+    @apply !p-0 !m-0 font-raleway;
+}
+
+.themed-accordion .themed-accordion-item {
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
+    @apply  border border-theme-primary-light bg-theme-neutral-background hover:border-theme-primary rounded-lg px-4 py-4 transition duration-300 ease-in-out;
+}
+
+.themed-accordion .themed-accordion-item[data-open='true'] {
+    @apply border-theme-primary py-2;
+}
+
+.themed-accordion .themed-accordion-item[data-open='true'] button > span {
+    @apply !rotate-90;
+}
+
+.themed-accordion .themed-accordion-item button > div > span {
+    @apply text-theme-neutral text-sm font-bold font-raleway
+}
+.themed-accordion .themed-accordion-item button {
+    @apply p-0;
+}
+
+.themed-accordion .themed-accordion-item section {
+    @apply p-0;
+}
+
+.themed-accordion .themed-accordion-item section > div {
+    @apply p-0 pt-6 text-theme-neutral text-sm font-normal font-raleway;
+}

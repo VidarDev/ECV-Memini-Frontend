@@ -1,5 +1,7 @@
 import { nextui } from '@nextui-org/theme';
 
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,8 +12,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)'],
-        mono: ['var(--font-geist-mono)'],
+        // sans: ['var(--font-sans)'],
+        // mono: ['var(--font-mono)'],
+        pangaia: ['Playfair Display', ...defaultTheme.fontFamily.serif],
+        raleway: ['Raleway', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         theme: {
@@ -19,6 +23,8 @@ module.exports = {
           'neutral-invert': 'var(--theme-neutral-invert)',
           'neutral-background': 'var(--theme-neutral-bg)',
           primary: 'var(--theme-primary)',
+          'primary-200': 'var(--theme-primary-200)',
+          'primary-400': 'var(--theme-primary-400)',
           'primary-light': 'var(--theme-primary-light)',
           'primary-hover': 'var(--theme-primary-hover)',
           disabled: 'var(--theme-disabled)',

@@ -1,0 +1,7 @@
+.themed-progress  > div {
+    @apply bg-theme-neutral-invert h-2.5;
+}
+.themed-progress  > div > div {
+    background-color: var(--theme-primary);
+    background: linear-gradient(73deg, var(--theme-primary) 27.95%, var(--theme-secondary) 134.46%);
+}
