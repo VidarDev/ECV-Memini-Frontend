@@ -9,12 +9,16 @@
 @import "components/themedSelect.css";
 @import "components/themedTextarea.css";
 @import "components/themedSlider.css";
+@import "components/themedAccordion.css";
 @import "memicon.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.theme-shadow {
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
+}
 .bg-theme-gradient {
     background-color: var(--theme-primary);
     background: linear-gradient(73deg, var(--theme-primary) 27.95%, var(--theme-secondary) 134.46%);

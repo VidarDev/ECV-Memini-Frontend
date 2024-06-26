@@ -10,6 +10,7 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
 	"dependencies": {
+		"@nextui-org/accordion": "^2.0.35",
 		"@nextui-org/avatar": "^2.0.30",
 		"@nextui-org/button": "2.0.34",
 		"@nextui-org/checkbox": "^2.1.2",
