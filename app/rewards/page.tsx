@@ -75,52 +75,52 @@ export default function Albums() {
             </div>
           </div>
         </div>
-        <div className={'app-min-h-card mt-10 flex w-full flex-col flex-wrap gap-3'}>
+        <div className={'app-min-h-card mt-10 flex w-full flex-col flex-wrap'}>
           <h2 className={'w-full font-pangaia text-xl font-medium text-theme-neutral'}>
             Ma collection de badges
             {/* TODO : replace */}
           </h2>
-          <div className={'flex flex-wrap'}>
-            <div className="w-1/4 p-3">
+          <div className={'mt-[40px] flex flex-wrap justify-center gap-y-6'}>
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
-            <div className="w-1/4 p-3">
+            <div className="inline-flex w-1/4 min-w-fit justify-center px-3">
               <div className={'h-14 w-14 rounded-full bg-white'}></div>
             </div>
           </div>
           <Link
             isExternal
-            className={`${buttonStyles()} min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+            className={`${buttonStyles()} mt-[40px] min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
             href={'/uikit'}
           >
             Tous mes badges
