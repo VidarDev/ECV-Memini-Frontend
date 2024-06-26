@@ -1,11 +1,13 @@
 'use client';
 
-import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { button as buttonStyles } from '@nextui-org/theme';
 import { Link } from '@nextui-org/link';
 import React from 'react';
+
+import { useAuth } from '@/context/AuthContext';
+import { siteConfig } from '@/config/site';
 import ThemedAccordion from '@/components/ThemedAccordion';
 
 export default function Home() {
@@ -14,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -34,8 +36,8 @@ export default function Home() {
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <Link className={`px-4 text-theme-neutral`} href={'/profile'}>
-            <span className={'memicon-arrow-left text-5xl'}></span>
+          <Link className={`px-4 text-theme-neutral`} href={siteConfig.href.profile}>
+            <span className={'memicon-arrow-left text-5xl'} />
           </Link>
           <div className={'relative w-fit'}>
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
@@ -128,7 +130,7 @@ export default function Home() {
           <Link
             isExternal
             className={`${buttonStyles()} min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
-            href={'/uikit'}
+            href={siteConfig.href.uikit}
           >
             Ecris-nous ! <span className={'memicon-arrow'} />
           </Link>

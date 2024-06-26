@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login');
+      router.push(siteConfig.href.auth);
     }
   }, [loading, user, router]);
 
@@ -35,7 +35,7 @@ export default function Home() {
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
-          <Link className={`px-4 text-theme-neutral`} href={'/profile'}>
+          <Link className={`px-4 text-theme-neutral`} href={siteConfig.href.profile}>
             <span className={'memicon-arrow-left text-5xl'}></span>
           </Link>
           <div className={'relative w-fit'}>
@@ -65,13 +65,13 @@ export default function Home() {
         <div className={'mt-8 flex w-full flex-col gap-4 px-4'}>
           <Link
             className={`font-raleway text-sm font-normal leading-tight text-theme-neutral underline`}
-            href={'/uikit'}
+            href={siteConfig.href.uikit}
           >
             Importer mes données
           </Link>
           <Link
             className={`font-raleway text-sm font-normal leading-tight text-theme-neutral underline`}
-            href={'/uikit'}
+            href={siteConfig.href.uikit}
           >
             Exporter mes données
           </Link>
@@ -89,13 +89,13 @@ export default function Home() {
         <div className={'mt-8 flex w-full flex-col gap-4 px-4'}>
           <Link
             className={`font-raleway text-sm font-normal leading-tight text-theme-neutral underline`}
-            href={'/uikit'}
+            href={siteConfig.href.uikit}
           >
             Conditions d’utilisation
           </Link>
           <Link
             className={`font-raleway text-sm font-normal leading-tight text-theme-neutral underline`}
-            href={'/uikit'}
+            href={siteConfig.href.uikit}
           >
             Politique de confidentialité
           </Link>
