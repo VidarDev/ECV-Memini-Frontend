@@ -2,13 +2,14 @@ import React from 'react';
 import { Slider } from '@nextui-org/slider';
 
 import ThemedSwitch from '@/components/ThemedSwitch';
+import { Link } from '@nextui-org/link';
 
 export default function Home() {
   return (
     <>
       <section
         className={
-          'bg-theme-primary-200 relative flex min-h-[250px] flex-col rounded-b-[80px] px-4'
+          'relative flex min-h-[250px] flex-col rounded-b-[80px] bg-theme-primary-200 px-4'
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
@@ -25,7 +26,11 @@ export default function Home() {
         className={'app-translate-y-3 relative flex flex-col items-center justify-center pb-36'}
       >
         <div className={'flex w-full flex-col items-center justify-center gap-4 px-4'}>
-          <div className={'flex w-fit items-center gap-8 rounded-2xl bg-theme-neutral-invert p-6'}>
+          <div
+            className={
+              'theme-shadow flex w-fit items-center gap-8 rounded-2xl bg-theme-neutral-invert p-6'
+            }
+          >
             <div className="font-pangaia text-xl font-medium text-black">Notifications</div>
             <ThemedSwitch />
           </div>

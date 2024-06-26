@@ -1,6 +1,10 @@
+'use client';
+
 import { Navbar as NextUINavbar } from '@nextui-org/navbar';
 import { Link } from '@nextui-org/link';
 import React from 'react';
+import NavIcons from '@/components/images/NavIcons';
+import { useRouter } from 'next/navigation';
 
 export const ThemedNavbar = () => {
   return (
@@ -45,7 +49,12 @@ export const ThemedNavbar = () => {
             <div className={'flex h-full min-w-20 justify-center'}>
               <li className={'absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-1/2'}>
                 <Link href="/uikit">
-                  <span className={'memicon-add-color pl-0.5 text-[3rem] text-theme-neutral'} />
+                  <NavIcons
+                    className={'ml-1'}
+                    startColor={'var(--theme-primary)'}
+                    endColor={'var(--theme-secondary)'}
+                    centerColor={'var(--theme-neutral)'}
+                  ></NavIcons>
                 </Link>
               </li>
             </div>

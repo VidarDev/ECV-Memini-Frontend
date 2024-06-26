@@ -5,6 +5,7 @@ import { Link } from '@nextui-org/link';
 import React from 'react';
 import ThemedRadioImages from '@/components/ThemedRadioImage';
 import { RadioGroup } from '@nextui-org/radio';
+import AddIcons from '@/components/images/AddIcons';
 
 export default function Albums() {
   return (
@@ -25,7 +26,12 @@ export default function Albums() {
                 src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
                 width={100}
               />
-              <span className={'memicon-add-color absolute -bottom-1 right-1 z-10 text-2xl'}></span>
+              <AddIcons
+                className={'absolute -bottom-1 right-1 z-10 h-[24px] w-[24px]'}
+                startColor={'var(--theme-primary)'}
+                endColor={'var(--theme-secondary)'}
+                centerColor={'var(--theme-neutral-invert)'}
+              ></AddIcons>
             </div>
             <div className={'relative w-fit'}>
               <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
@@ -55,7 +61,7 @@ export default function Albums() {
       >
         <div
           className={
-            'relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-3 py-4'
+            'theme-shadow relative flex w-full flex-1 flex-col items-center justify-center gap-4 rounded-2xl bg-theme-neutral-invert px-3 py-4'
           }
         >
           <span
@@ -79,7 +85,7 @@ export default function Albums() {
         <div className={'mt-6 flex w-full flex-col gap-2'}>
           <div
             className={
-              'relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
+              'theme-shadow relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
             }
           >
             <div className={'flex w-full flex-col border-b-1 border-[#ACA4A6] pb-2'}>
@@ -102,7 +108,7 @@ export default function Albums() {
           </div>
           <div
             className={
-              'relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
+              'theme-shadow relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
             }
           >
             <div className={'flex w-full flex-col border-b-1 border-[#ACA4A6] pb-2'}>
@@ -129,7 +135,7 @@ export default function Albums() {
           </div>
           <div
             className={
-              'relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
+              'theme-shadow relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
             }
           >
             <div className={'flex w-full flex-col border-b-1 border-[#ACA4A6] pb-2'}>
@@ -150,7 +156,7 @@ export default function Albums() {
           </div>
           <div
             className={
-              'relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
+              'theme-shadow relative flex w-full flex-1 flex-col items-start justify-center gap-6 rounded-2xl bg-theme-neutral-invert px-3 py-4'
             }
           >
             <div className={'relative w-fit'}>

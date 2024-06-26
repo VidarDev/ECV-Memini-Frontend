@@ -3,6 +3,7 @@ import { button as buttonStyles } from '@nextui-org/theme';
 import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
 import React from 'react';
+import OneIcons from '@/components/images/oneIcons';
 
 export default function Home() {
   return (
@@ -24,6 +25,11 @@ export default function Home() {
         </div>
         <div className={'mb-20 mt-16'}>
           <div className={'relative w-fit'}>
+            <OneIcons
+              className={'absolute -right-2 -top-3 h-[32px] w-[19px]'}
+              startColor={'var(--theme-neutral)'}
+              endColor={'var(--theme-neutral)'}
+            />
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Hello Flavie,</h1>
             {/* TODO : replace */}
           </div>
@@ -39,7 +45,7 @@ export default function Home() {
             <div className={'w-full px-2'}>
               <div
                 className={
-                  'app-min-h-card flex max-h-fit w-full flex-col gap-4 rounded-2xl bg-theme-neutral-invert px-4 py-8'
+                  'app-min-h-card theme-shadow flex max-h-fit w-full flex-col gap-4 rounded-2xl bg-theme-neutral-invert px-4 py-8'
                 }
               >
                 <span className={'text-xl font-medium'}>Aujourd’hui, le 24/06/2024</span>
@@ -91,7 +97,7 @@ export default function Home() {
             <div className={'w-1/2 px-2'}>
               <div
                 className={
-                  'app-min-h-card app-album-home relative flex flex-1 rounded-2xl bg-theme-neutral-invert p-4 text-[102px]'
+                  'app-min-h-card theme-shadow app-album-home relative flex flex-1 rounded-2xl bg-theme-neutral-invert p-4 text-[102px]'
                 }
               >
                 <span className={'text-base font-medium'}>Mon album perso</span>
@@ -101,7 +107,7 @@ export default function Home() {
             <div className={'w-1/2 px-2'}>
               <div
                 className={
-                  'app-min-h-card flex flex-1 flex-col items-center justify-center gap-2.5 rounded-2xl bg-theme-primary-400 px-4 py-5 text-theme-neutral-invert'
+                  'app-min-h-card theme-shadow flex flex-1 flex-col items-center justify-center gap-2.5 rounded-2xl bg-theme-primary-400 px-4 py-5 text-theme-neutral-invert'
                 }
               >
                 <span className={'font-raleway text-5xl font-bold leading-10'}>3</span>
@@ -113,7 +119,7 @@ export default function Home() {
             <div className={'w-full px-2'}>
               <div
                 className={
-                  'app-min-h-card relative flex aspect-video max-h-20 w-full flex-wrap gap-4 overflow-hidden rounded-2xl bg-theme-neutral-background p-4'
+                  'app-min-h-card theme-shadow relative flex aspect-video max-h-20 w-full flex-wrap gap-4 overflow-hidden rounded-2xl bg-theme-neutral-background p-4'
                 }
               >
                 <Link

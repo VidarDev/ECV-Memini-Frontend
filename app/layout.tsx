@@ -50,7 +50,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html suppressHydrationWarning className={'bg-theme-neutral-background'} lang="en">
       <head />
       <body
-        className={clsx('min-h-screen overflow-y-hidden bg-transparent font-pangaia antialiased')}
+        className={clsx(
+          'min-h-screen overflow-y-hidden bg-transparent font-pangaia text-theme-neutral antialiased',
+        )}
       >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <ThemedNavbar />

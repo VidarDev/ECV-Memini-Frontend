@@ -3,6 +3,8 @@ import { button as buttonStyles } from '@nextui-org/theme';
 import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
 import React from 'react';
+import ThreeIcons from '@/components/images/threeIcons';
+import TwoIcons from '@/components/images/twoIcons';
 
 export default function Albums() {
   return (
@@ -14,6 +16,11 @@ export default function Albums() {
       >
         <div className={'mb-20 mt-16'}>
           <div className={'relative w-fit'}>
+            <TwoIcons
+              className={'absolute -right-5 -top-1 h-[24px] w-[27px]'}
+              startColor={'var(--theme-primary)'}
+              endColor={'var(--theme-secondary)'}
+            />
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Mes badges</h1>
             {/* TODO : replace */}
           </div>

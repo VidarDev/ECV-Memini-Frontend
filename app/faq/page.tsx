@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <section
         className={
-          'bg-theme-primary-200 relative flex min-h-[250px] flex-col rounded-b-[80px] px-4'
+          'relative flex min-h-[250px] flex-col rounded-b-[80px] bg-theme-primary-200 px-4'
         }
       >
         <div className={'mb-20 mt-8 flex flex-col gap-8'}>
@@ -35,30 +35,72 @@ export default function Home() {
         <div className={'flex w-full flex-col gap-4 px-4'}>
           <ThemedAccordion
             key="1"
-            aria-label="Quelles sont les fonctionnalités
-principales de l'application Memini ?"
-            title="Quelles sont les fonctionnalités
-principales de l'application Memini ?"
+            aria-label="Quelles sont les fonctionnalités principales de l'application Memini ?"
+            title="Quelles sont les fonctionnalités principales de l'application Memini ?"
           >
             Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
             forme de notes écrites, vocales ou de vidéo.{' '}
           </ThemedAccordion>
           <ThemedAccordion
-            key="1"
-            aria-label="Quelles sont les fonctionnalités
-principales de l'application Memini ?"
-            title="Quelles sont les fonctionnalités
-principales de l'application Memini ?"
+            key="2"
+            aria-label="Comment puis-je créer un nouveau souvenir ?"
+            title="Comment puis-je créer un nouveau souvenir ?"
           >
             Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
             forme de notes écrites, vocales ou de vidéo.{' '}
           </ThemedAccordion>
           <ThemedAccordion
-            key="1"
-            aria-label="Quelles sont les fonctionnalités
-principales de l'application Memini ?"
-            title="Quelles sont les fonctionnalités
-principales de l'application Memini ?"
+            key="3"
+            aria-label="Comment organiser mes souvenirs en projets ?"
+            title="Comment organiser mes souvenirs en projets ?"
+          >
+            Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
+            forme de notes écrites, vocales ou de vidéo.{' '}
+          </ThemedAccordion>
+          <ThemedAccordion
+            key="4"
+            aria-label="L'application fonctionne-t-elle hors ligne ?"
+            title="L'application fonctionne-t-elle hors ligne ?"
+          >
+            Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
+            forme de notes écrites, vocales ou de vidéo.{' '}
+          </ThemedAccordion>
+          <ThemedAccordion
+            key="5"
+            aria-label="Mes souvenirs sont-ils sécurisés ?"
+            title="Mes souvenirs sont-ils sécurisés ?"
+          >
+            Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
+            forme de notes écrites, vocales ou de vidéo.{' '}
+          </ThemedAccordion>
+          <ThemedAccordion
+            key="6"
+            aria-label="Puis-je partager mes souvenirs avec d'autres personnes ?"
+            title="Puis-je partager mes souvenirs avec d'autres personnes ?"
+          >
+            Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
+            forme de notes écrites, vocales ou de vidéo.{' '}
+          </ThemedAccordion>{' '}
+          <ThemedAccordion
+            key="7"
+            aria-label="Y a-t-il une limite au nombre de souvenirs que je peux enregistrer ?"
+            title="Y a-t-il une limite au nombre de souvenirs que je peux enregistrer ?"
+          >
+            Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
+            forme de notes écrites, vocales ou de vidéo.{' '}
+          </ThemedAccordion>
+          <ThemedAccordion
+            key="8"
+            aria-label="L'application est-elle gratuite ?"
+            title="L'application est-elle gratuite ?"
+          >
+            Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
+            forme de notes écrites, vocales ou de vidéo.{' '}
+          </ThemedAccordion>
+          <ThemedAccordion
+            key="9"
+            aria-label="Où puis-je télécharger Memini ?"
+            title="Où puis-je télécharger Memini ?"
           >
             Memini permet aux utilisateurs de créer, enregistrer et organiser des souvenirs sous
             forme de notes écrites, vocales ou de vidéo.{' '}

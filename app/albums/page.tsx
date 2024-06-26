@@ -3,6 +3,9 @@ import { button as buttonStyles } from '@nextui-org/theme';
 import { siteConfig } from '@/config/site';
 import { Link } from '@nextui-org/link';
 import React from 'react';
+import ThreeIcons from '@/components/images/threeIcons';
+import NavIcons from '@/components/images/NavIcons';
+import AddIcons from '@/components/images/AddIcons';
 
 export default function Albums() {
   return (
@@ -14,6 +17,11 @@ export default function Albums() {
       >
         <div className={'mb-20 mt-16'}>
           <div className={'relative w-fit'}>
+            <ThreeIcons
+              className={'absolute -bottom-2 -right-4 h-[20px] w-[54px]'}
+              startColor={'var(--theme-primary)'}
+              endColor={'var(--theme-secondary)'}
+            />
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Mes albums</h1>
             {/* TODO : replace */}
           </div>
@@ -29,7 +37,7 @@ export default function Albums() {
             <div className={'w-full px-2'}>
               <div
                 className={
-                  'relative flex aspect-video max-h-[164px] min-h-[164px] w-full flex-wrap gap-4 overflow-hidden rounded-2xl bg-theme-neutral-background p-4'
+                  'theme-shadow relative flex aspect-video max-h-[164px] min-h-[164px] w-full flex-wrap gap-4 overflow-hidden rounded-2xl bg-theme-neutral-background p-4'
                 }
               >
                 <Link
@@ -59,7 +67,7 @@ export default function Albums() {
             <div className={'w-1/2 px-2'}>
               <div
                 className={
-                  'app-min-h-card relative flex flex-1 overflow-hidden rounded-2xl bg-theme-neutral-background'
+                  'app-min-h-card theme-shadow relative flex flex-1 overflow-hidden rounded-2xl bg-theme-neutral-background'
                 }
               >
                 <Link
@@ -85,7 +93,7 @@ export default function Albums() {
             <div className={'w-1/2 px-2'}>
               <div
                 className={
-                  'app-min-h-card relative flex flex-1 overflow-hidden rounded-2xl bg-theme-neutral-background'
+                  'app-min-h-card theme-shadow relative flex flex-1 overflow-hidden rounded-2xl bg-theme-neutral-background'
                 }
               >
                 <Link
@@ -111,10 +119,15 @@ export default function Albums() {
             <div className={'w-1/2 px-2'}>
               <div
                 className={
-                  'app-min-h-card relative flex w-full flex-col gap-4 rounded-2xl bg-theme-neutral-invert p-4 text-[102px]'
+                  'app-min-h-card theme-shadow relative flex w-full flex-col gap-4 rounded-2xl bg-theme-neutral-invert p-4 text-[102px]'
                 }
               >
-                <span className={'memicon-add-color text-2xl'}></span>
+                <AddIcons
+                  className={'h-[24px] w-[24px]'}
+                  startColor={'var(--theme-primary)'}
+                  endColor={'var(--theme-secondary)'}
+                  centerColor={'var(--theme-neutral-invert)'}
+                ></AddIcons>{' '}
                 {/* TODO : replace */}
                 <span className={'text-base font-medium'}>Mon album perso</span>
                 {/* TODO : replace */}
