@@ -5,6 +5,17 @@ import { Input } from "@nextui-org/input";
 import { button as buttonStyles } from "@nextui-org/theme";
 import "../../styles/globals.css";
 
+// Définir le type pour les thèmes de couleur
+type ColorTheme = "URANUS" | "SATURN" | "JUPITER" | "VENUS";
+
+// Ajuster l'objet gradients pour utiliser les clés de ColorTheme
+const gradients: Record<ColorTheme, string> = {
+  URANUS: "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
+  SATURN: "linear-gradient(45deg, #a18cd1 0%, #fbc2eb 100%)",
+  JUPITER: "linear-gradient(45deg, #f093fb 0%, #f5576c 100%)",
+  VENUS: "linear-gradient(45deg, #fddb92 0%, #d1fdff 100%)"
+};
+
 const Signup = () => {
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,25 +26,36 @@ const Signup = () => {
   const [identity, setGender] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [step, setStep] = useState(1);
+  const [theme, setTheme] = useState(gradients.URANUS); // Default theme
+  const [colorTheme, setColorTheme] = useState<ColorTheme>("URANUS"); // Default ColorTheme
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (step < 4) {
+      if (!validateStep()) {
+        setError("Tous les champs doivent être remplis avant de continuer.");
+        return;
+      }
       handleContinue();
+      return;
+    }
+
+    if (!validateStep()) {
+      setError("Tous les champs doivent être remplis avant de soumettre.");
       return;
     }
 
     const birthDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
     try {
-      const response = await fetch("http://192.168.1.101:8080/signup", {
+      const response = await fetch("http://192.168.1.101:8080/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        body: JSON.stringify({ mail, password, username, birthDate, identity }),
+        body: JSON.stringify({ mail, password, username, birthDate, identity, colorTheme }),
       });
 
       if (!response.ok) {
@@ -43,6 +65,10 @@ const Signup = () => {
 
       // Signup successful
       console.log("Signup successful");
+
+      // Mise à jour du thème après inscription réussie
+      setTheme(gradients[colorTheme]);
+
     } catch (err) {
       console.error("Signup error:", err);
       setError(err instanceof Error ? err.message : "An unknown error occurred. Please try again.");
@@ -50,15 +76,38 @@ const Signup = () => {
   };
 
   const handleContinue = () => {
+    // Increment step to show next set of fields
     setStep((prevStep) => prevStep + 1);
+    setError(null); // Clear error message when moving to next step
+  };
+
+  const validateStep = (): boolean => {
+    if (step === 1 && (!mail || !password)) {
+      return false;
+    }
+    if (step === 2 && !username) {
+      return false;
+    }
+    if (step === 3 && (!day || !month || !year)) {
+      return false;
+    }
+    if (step === 4 && !identity) {
+      return false;
+    }
+    return true;
   };
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
   const years = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i);
 
+  const handleColorThemeChange = (selectedTheme: ColorTheme) => {
+    setTheme(gradients[selectedTheme]);
+    setColorTheme(selectedTheme);
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-theme-neutral-background">
+    <div className="flex items-center justify-center min-h-screen">
       <div className="p-8">
         <div className="flex justify-center flex-col items-center text-black mb-6">
           <div>
@@ -78,7 +127,7 @@ const Signup = () => {
               <Input
                 id="mail"
                 label="Email"
-                type="email"
+                type="mail"
                 className="themed-input text-black"
                 value={mail}
                 onChange={(e) => setEmail(e.target.value)}
@@ -112,7 +161,6 @@ const Signup = () => {
 
           {step === 3 && (
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Date de naissance</label>
               <div className="flex space-x-2">
                 <select
                   id="day"

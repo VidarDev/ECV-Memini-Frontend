@@ -1,6 +1,6 @@
 "use client"; // Ajoutez cette ligne au début du fichier
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "@nextui-org/input";
 import { button as buttonStyles } from "@nextui-org/theme";
 import "../../styles/globals.css";
@@ -10,6 +10,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loginStatus, setLoginStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [initialBackgroundTheme, setInitialBackgroundTheme] = useState<string>("linear-gradient(to bottom right, #ffffff, #f1f1f1)");
+
+  useEffect(() => {
+    // Fetch initial background theme or set a default
+    // Replace with actual fetch logic if needed
+    setInitialBackgroundTheme("linear-gradient(to bottom right, #ffffff, #f1f1f1)");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,6 +41,10 @@ const Login = () => {
       // Login successful
       setLoginStatus("success");
       console.log("Login successful");
+
+      // Reset background theme to initial state
+      setInitialBackgroundTheme("linear-gradient(to bottom right, #ffffff, #f1f1f1)");
+
     } catch (err) {
       console.error("Login error:", err);
       setLoginStatus("error");
@@ -46,7 +57,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-theme-neutral-background">
+    <div className="flex items-center justify-center min-h-screen" style={{ background: initialBackgroundTheme }}>
       <div className="p-8">
         <div className="flex justify-center flex-col items-center text-black mb-6">
           <div>
