@@ -58,7 +58,7 @@ export default function AlbumsScreen() {
           'relative flex min-h-[250px] flex-col rounded-b-[80px] bg-theme-neutral-invert px-4'
         }
       >
-        <div className={'mb-20 mt-16'}>
+        <div className={'mb-20 mt-16 flex justify-between'}>
           <div className={'relative w-fit'}>
             <ThreeIcons
               className={'absolute -bottom-2 -right-4 h-[20px] w-[54px]'}
@@ -69,6 +69,11 @@ export default function AlbumsScreen() {
               Mes albums
             </h1>
           </div>
+          <div>
+            <Link  href={siteConfig.href.albumDelete}>
+                <img src="/images/bin.svg" alt="Go to the page" />
+            </Link>
+    </div>
         </div>
       </section>
       <section
