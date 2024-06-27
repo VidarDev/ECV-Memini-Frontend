@@ -50,7 +50,6 @@ export default function Home() {
 
   return (
     <>
-      <button onClick={getDateWithMemories}> Click </button>
       <section
         className={'bg-theme-gradient relative flex min-h-[250px] flex-col rounded-b-[80px] px-4'}
       >
