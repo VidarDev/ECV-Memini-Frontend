@@ -36,7 +36,6 @@ const Signup = () => {
 	const [step, setStep] = useState(1);
 	const maxSteps: number = 4;
 
-	const [storedUsername, setStoredUsername] = useState('');
 	const {login} = useAuth();
 	const router = useRouter();
 
