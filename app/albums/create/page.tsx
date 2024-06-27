@@ -34,7 +34,7 @@ const MemoryCreate = () => {
 
     const payload = {
       username: username,
-      albumName: albumName
+      albumName: albumName,
     };
 
     try {
@@ -42,7 +42,7 @@ const MemoryCreate = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify(payload),
       });
@@ -87,15 +87,6 @@ const MemoryCreate = () => {
           <span className={'memicon-close text-5xl'} />
         </button>
         {error && <p className="mb-4 text-theme-error">{error}</p>}
-      </div>
-      <div className="flex items-center justify-center mb-4">
-        {username ? (
-          <p className="text-theme-neutral text-lg font-semibold">
-            Utilisateur actuel: {username}
-          </p>
-        ) : (
-          <p className="text-theme-error text-lg font-semibold">Utilisateur non connecté</p>
-        )}
       </div>
       <form className={'flex w-full flex-col items-center gap-16'} onSubmit={handleSubmit}>
         <div className={'flex w-full flex-col items-center gap-11'}>
