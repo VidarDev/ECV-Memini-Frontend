@@ -106,21 +106,25 @@ const MemoryCreate = () => {
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="joy" className={'border-3'}>
-                      <img alt={''} className={'h-auto w-full'} src={'/images/emotions/joy.svg'} />
+                    <ThemedRadioImages value="happy" className={'border-3'}>
+                      <img
+                        alt={''}
+                        className={'h-auto w-full'}
+                        src={'/images/emotions/happy.svg'}
+                      />
                     </ThemedRadioImages>
-                    <span className="text-center font-raleway text-xs font-normal">stress</span>
+                    <span className="text-center font-raleway text-xs font-normal">stressed</span>
                   </div>
                   <div
                     className={
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="anger" className={'border-3'}>
+                    <ThemedRadioImages value="angry" className={'border-3'}>
                       <img
                         alt={''}
                         className={'h-auto w-full'}
-                        src={'/images/emotions/anger.svg'}
+                        src={'/images/emotions/angry.svg'}
                       />
                     </ThemedRadioImages>
                     <span className="text-center font-raleway text-xs font-normal">colère</span>
@@ -130,12 +134,8 @@ const MemoryCreate = () => {
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="sadness" className={'border-3'}>
-                      <img
-                        alt={''}
-                        className={'h-auto w-full'}
-                        src={'/images/emotions/sadness.svg'}
-                      />
+                    <ThemedRadioImages value="sad" className={'border-3'}>
+                      <img alt={''} className={'h-auto w-full'} src={'/images/emotions/sad.svg'} />
                     </ThemedRadioImages>
                     <span className="text-center font-raleway text-xs font-normal">tristesse</span>
                   </div>
@@ -144,25 +144,25 @@ const MemoryCreate = () => {
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="fatigue" className={'border-3'}>
+                    <ThemedRadioImages value="tired" className={'border-3'}>
                       <img
                         alt={''}
                         className={'h-auto w-full'}
-                        src={'/images/emotions/fatigue.svg'}
+                        src={'/images/emotions/tired.svg'}
                       />
                     </ThemedRadioImages>
-                    <span className="text-center font-raleway text-xs font-normal">fatigue</span>
+                    <span className="text-center font-raleway text-xs font-normal">tired</span>
                   </div>
                   <div
                     className={
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="excitement" className={'border-3'}>
+                    <ThemedRadioImages value="excited" className={'border-3'}>
                       <img
                         alt={''}
                         className={'h-auto w-full'}
-                        src={'/images/emotions/excitement.svg'}
+                        src={'/images/emotions/excited.svg'}
                       />
                     </ThemedRadioImages>
                     <span className="text-center font-raleway text-xs font-normal">excitation</span>
@@ -172,11 +172,11 @@ const MemoryCreate = () => {
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="pride" className={'border-3'}>
+                    <ThemedRadioImages value="proud" className={'border-3'}>
                       <img
                         alt={''}
                         className={'h-auto w-full'}
-                        src={'/images/emotions/pride.svg'}
+                        src={'/images/emotions/proud.svg'}
                       />
                     </ThemedRadioImages>
                     <span className="text-center font-raleway text-xs font-normal">fierté</span>
@@ -186,11 +186,11 @@ const MemoryCreate = () => {
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="faith" className={'border-3'}>
+                    <ThemedRadioImages value="confident" className={'border-3'}>
                       <img
                         alt={''}
                         className={'h-auto w-full'}
-                        src={'/images/emotions/faith.svg'}
+                        src={'/images/emotions/confident.svg'}
                       />
                     </ThemedRadioImages>
                     <span className="text-center font-raleway text-xs font-normal">confiance</span>
@@ -200,14 +200,14 @@ const MemoryCreate = () => {
                       'flex w-1/4 flex-col gap-1 px-3 *:max-h-full *:*:w-full *:max-w-full'
                     }
                   >
-                    <ThemedRadioImages value="stress" className={'border-3'}>
+                    <ThemedRadioImages value="stressed" className={'border-3'}>
                       <img
                         alt={''}
                         className={'h-auto w-full'}
-                        src={'/images/emotions/stress.svg'}
+                        src={'/images/emotions/stressed.svg'}
                       />
                     </ThemedRadioImages>
-                    <span className="text-center font-raleway text-xs font-normal">stress</span>
+                    <span className="text-center font-raleway text-xs font-normal">stressed</span>
                   </div>
                 </RadioGroup>
               </div>

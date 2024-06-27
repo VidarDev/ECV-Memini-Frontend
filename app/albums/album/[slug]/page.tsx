@@ -9,11 +9,70 @@ import { useRouter } from 'next/navigation';
 import ThemedTextarea from '@/components/ThemedTextarea';
 import { useAuth } from '@/context/AuthContext';
 import { Link } from '@nextui-org/link';
+import data from '@/config/album.json';
+import { GetStaticProps } from 'next';
+import { useData } from '@/context/DataContext';
 
+interface DataItem {
+  content: string;
+  date: string;
+  mediaName: string;
+  mood: string;
+}
+
+interface GroupedDataItem {
+  position: number;
+  name: string;
+  nombre: number;
+  items: DataItem[];
+}
+
+interface HomeProps {
+  groupedData: GroupedDataItem[];
+}
+
+const positionData = [
+  { top: '10%', left: '50%' },
+  { top: '27.5%', left: '72.5%' },
+  { top: '50%', left: '90%' },
+  { top: '72.5%', left: '72.5%' },
+  { top: '90%', left: '50%' },
+  { top: '72.5%', left: '27.5%' },
+  { top: '50%', left: '10%' },
+  { top: '27.5%', left: '27.5%' },
+];
+
+function groupAndSortData(data: DataItem[]): GroupedDataItem[] {
+  const moodMap: { [key: string]: DataItem[] } = {};
+
+  data.forEach((item) => {
+    if (!moodMap[item.mood]) {
+      moodMap[item.mood] = [];
+    }
+    moodMap[item.mood].push(item);
+  });
+
+  const moodArray = Object.keys(moodMap).map((mood) => ({
+    mood,
+    items: moodMap[mood],
+    nombre: moodMap[mood].length,
+  }));
+
+  moodArray.sort((a, b) => b.nombre - a.nombre);
+
+  return moodArray.map((group, index) => ({
+    position: index + 1,
+    name: group.mood,
+    nombre: group.nombre,
+    items: group.items,
+  }));
+}
 const MemoryCreate = ({ params }: { params: { slug: string } }) => {
-  const router = useRouter();
+  const { setData } = useData();
   const { user, loading } = useAuth();
-  const idAlbum = params.slug;
+  const router = useRouter();
+
+  const groupedData = groupAndSortData(data);
   useEffect(() => {
     if (!loading && !user) {
       router.push(siteConfig.href.auth);
@@ -27,6 +86,11 @@ const MemoryCreate = ({ params }: { params: { slug: string } }) => {
   if (!user) {
     return null; // Ou un composant de chargement supplémentaire
   }
+
+  const handleNavigate = (group: string, items: any) => {
+    setData(items);
+    router.push(siteConfig.href.album + '/' + params.slug + '/' + group);
+  };
 
   const randomNumberInRange = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -54,91 +118,30 @@ const MemoryCreate = ({ params }: { params: { slug: string } }) => {
       >
         <div
           className={
-            'max-w-emotion max-h-emotion relative flex h-screen w-full flex-col items-center blur-lg'
+            'max-w-emotion max-h-emotion relative flex h-screen w-full flex-col items-center blur-2xl'
           }
         >
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `10%`, left: `50%`, zIndex: 1 }}
-          >
-            <Link
-              className={'bg-emotions-joy block aspect-square h-auto rounded-full opacity-95'}
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `27.5%`, left: `72.5%`, zIndex: 2 }}
-          >
-            <Link
-              className={'bg-emotions-anger block aspect-square h-auto rounded-full opacity-95'}
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `50%`, left: `90%`, zIndex: 3 }}
-          >
-            <Link
-              className={'bg-emotions-sadness block aspect-square h-auto rounded-full opacity-95'}
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `72.5%`, left: `72.5%`, zIndex: 4 }}
-          >
-            <Link
-              className={'bg-emotions-fatigue block aspect-square h-auto rounded-full opacity-95'}
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `90%`, left: `50%`, zIndex: 5 }}
-          >
-            <Link
-              className={
-                'bg-emotions-excitement block aspect-square h-auto rounded-full opacity-95'
-              }
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `72.5%`, left: `27.5%`, zIndex: 6 }}
-          >
-            <Link
-              className={'bg-emotions-pride block aspect-square h-auto rounded-full opacity-95'}
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `50%`, left: `10%`, zIndex: 7 }}
-          >
-            <Link
-              className={'bg-emotions-faith block aspect-square h-auto rounded-full opacity-95'}
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
-          <div
-            className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
-            style={{ top: `27.5%`, left: `27.5%`, zIndex: 8 }}
-          >
-            <Link
-              className={'bg-emotions-stress block aspect-square h-auto rounded-full opacity-95'}
-              style={{ width: randomNumberInRange(25, 175) }}
-              href={siteConfig.links.docs}
-            ></Link>
-          </div>
+          {groupedData.map((group: GroupedDataItem, key: number) => (
+            <div
+              key={key}
+              className={'absolute inline-flex -translate-x-1/2 -translate-y-1/2 rounded-full'}
+              style={{
+                top: positionData[key].top,
+                left: positionData[key].left,
+                zIndex: group.position,
+              }}
+            >
+              <Link
+                className={clsx(
+                  `bg-emotions-${group.name}`,
+                  'anim-delay-' + randomNumberInRange(0, 9) * 100,
+                  'floating-scaling block aspect-square h-auto rounded-full opacity-95',
+                )}
+                style={{ width: group.nombre * 100 }}
+                onClick={() => handleNavigate(group.name, group.items)}
+              ></Link>
+            </div>
+          ))}
         </div>
       </div>
       <div></div>

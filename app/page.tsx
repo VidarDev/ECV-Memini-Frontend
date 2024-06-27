@@ -12,19 +12,19 @@ export default function Home() {
   const { user, loading } = useAuth();
   const router = useRouter();
 
-  const getDateWithMemories= async ()=>{
-    const S= `http://localhost:8080/memory/getDatesByUsername?username=${user}`
-    console.log(user.username)
-    console.log(S)
-    const response= await fetch(`http://localhost:8080/memory/getDatesByUsername?username=${user?.username}`)
-    if (!response.ok ) {
-      throw new Error('Impossible de contacter l`API')
+  const getDateWithMemories = async () => {
+    const S = `http://localhost:8080/memory/getDatesByUsername?username=${user}`;
+
+    const response = await fetch(
+      `http://localhost:8080/memory/getDatesByUsername?username=${user?.username}`,
+    );
+    if (!response.ok) {
+      throw new Error('Impossible de contacter l`API');
+    } else {
+      const body = await response.json();
+      console.log(body);
     }
-    else {
-      const body = await response.json()
-      console.log(body)
-    }
-  }
+  };
 
   useEffect(() => {
     if (!loading && !user) {
@@ -72,7 +72,9 @@ export default function Home() {
               startColor={'var(--theme-neutral)'}
               endColor={'var(--theme-neutral)'}
             />
-            <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Hello {user.username},</h1>
+            <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
+              Hello ${user.username},
+            </h1>
             {/* TODO : replace */}
           </div>
         </div>
