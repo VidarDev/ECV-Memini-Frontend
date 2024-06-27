@@ -72,6 +72,9 @@ const MemoryCreate = () => {
       setAlbums(albums.filter(album => album.albumName !== selectedAlbum.albumName));
       setSelectedAlbum(null);
       setStep(maxSteps); // Passe à l'étape 2 après la suppression
+
+      // Redirection vers la page des albums
+      router.push('/albums');
     } catch (error) {
       console.error('Erreur lors de la suppression de l\'album:', error);
       setError('Erreur lors de la suppression de l\'album');
@@ -184,7 +187,7 @@ const MemoryCreate = () => {
           type="button"
           onClick={handleContinue}
         >
-          Continuer
+          Supprimer l'album
           <span className={'memicon-arrow'} />
         </button>
       ) : (
@@ -193,7 +196,7 @@ const MemoryCreate = () => {
           type="button"
           onClick={handleDeleteAlbum}
         >
-          Supprimer l'album
+          Retourner aux albums
           <span className={'memicon-arrow'} />
         </button>
       )}
