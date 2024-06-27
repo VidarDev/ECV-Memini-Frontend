@@ -120,7 +120,7 @@ export default function Home() {
             </span>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 font-raleway text-sm font-bold text-theme-disabled`}
+              className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 font-raleway text-sm font-bold text-theme-disabled`}
               href={siteConfig.links.docs}
             >
               Je veux ma mémoire digitale

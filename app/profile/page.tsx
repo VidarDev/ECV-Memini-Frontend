@@ -103,7 +103,7 @@ export default function Albums() {
           {/* TODO : replace */}
           <Link
             isExternal
-            className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+            className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
             href={'tel:+33606060606'}
           >
             J&apos;appelle un spécialiste
@@ -215,7 +215,7 @@ export default function Albums() {
         </div>
         <Link
           isExternal
-          className={`${buttonStyles()} mt-6 min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+          className={`${buttonStyles()} mt-6 min-h-12 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
           href={siteConfig.href.uikit}
         >
           Me déconnecter

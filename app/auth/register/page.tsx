@@ -135,8 +135,8 @@ const Signup = () => {
           >
             <span className={'memicon-arrow-left text-5xl'} />
           </button>
-          {error && <p className="mb-4 text-theme-error">{error}</p>}
         </div>
+        {error && <p className="mb-4 text-theme-error">{error}</p>}
       </div>
       <form className={'flex w-full flex-col items-center gap-16'}>
         {step === 1 && (
@@ -307,7 +307,7 @@ const Signup = () => {
         )}
       </form>
       <button
-        className={`${buttonStyles()} min-h-10 w-full gap-2 !rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+        className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
         type={step < maxSteps ? 'button' : 'submit'}
         onClick={() => {
           if (step < maxSteps) handleContinue();

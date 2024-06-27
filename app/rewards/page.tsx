@@ -146,7 +146,7 @@ export default function Albums() {
           </div>
           <Link
             isExternal
-            className={`${buttonStyles()} mt-[40px] min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+            className={`${buttonStyles()} mt-[40px] min-h-12 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
             href={siteConfig.href.uikit}
           >
             Tous mes badges

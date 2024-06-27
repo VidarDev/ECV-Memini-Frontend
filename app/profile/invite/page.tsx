@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <div className={'mt-4 flex w-full flex-nowrap items-center gap-4 overflow-x-auto'}>
             <Link
-              className={`${buttonStyles()} min-h-10 w-full gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} min-h-12 w-full gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.href.profile}
             >
               Documentation
@@ -78,7 +78,7 @@ export default function Home() {
             </span>
             <Input className={'themed-input mt-6'} label="Email" type="email" />
             <Link
-              className={`${buttonStyles()} bg-theme-gradient-neutral mt-4 min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} bg-theme-gradient-neutral mt-4 min-h-12 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.href.uikit}
             >
               Documentation

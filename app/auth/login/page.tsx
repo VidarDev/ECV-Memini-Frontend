@@ -88,7 +88,7 @@ const Login = () => {
             />
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.links.docs}
             >
               {loginStatus === 'loading' ? 'Se connecte à...' : 'Se connecter'}
