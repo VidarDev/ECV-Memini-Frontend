@@ -62,7 +62,7 @@ export default function Albums() {
           <div className={'flex flex-1 justify-between gap-3'}>
             <div className={'flex flex-col items-center justify-center gap-2'}>
               <span
-                className={'memicon-add-color rounded-full bg-theme-neutral-invert p-2 text-2xl'}
+                className={'memicon-image rounded-full bg-theme-neutral-invert p-2 text-2xl'}
               ></span>
               <div className={'flex flex-col items-center justify-center gap-1 font-raleway'}>
                 <span className={'text-base font-bold leading-4 text-theme-neutral'}>65</span>
@@ -75,7 +75,7 @@ export default function Albums() {
             </div>
             <div className={'flex flex-col items-center justify-center gap-2'}>
               <span
-                className={'memicon-add-color rounded-full bg-theme-neutral-invert p-2 text-2xl'}
+                className={'memicon-user rounded-full bg-theme-neutral-invert p-2 text-2xl'}
               ></span>
               <div className={'flex flex-col items-center justify-center gap-1 font-raleway'}>
                 <span className={'text-base font-bold leading-4 text-theme-neutral'}>10</span>
@@ -88,7 +88,7 @@ export default function Albums() {
             </div>
             <div className={'flex flex-col items-center justify-center gap-2'}>
               <span
-                className={'memicon-add-color rounded-full bg-theme-neutral-invert p-2 text-2xl'}
+                className={'memicon-albums rounded-full bg-theme-neutral-invert p-2 text-2xl'}
               ></span>
               <div className={'flex flex-col items-center justify-center gap-1 font-raleway'}>
                 <span className={'text-base font-bold leading-4 text-theme-neutral'}>10</span>
