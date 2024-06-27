@@ -129,7 +129,7 @@ export default function Home() {
         <div className="mt-8 flex w-full px-4">
           <Link
             isExternal
-            className={`${buttonStyles()} min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+            className={`${buttonStyles()} min-h-12 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
             href={siteConfig.href.uikit}
           >
             Ecris-nous ! <span className={'memicon-arrow'} />

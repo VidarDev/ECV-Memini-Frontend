@@ -22,14 +22,14 @@ export default function AuthScreen() {
           </div>
           <div className={'flex w-fit flex-col items-center gap-4'}>
             <Link
-              className={`${buttonStyles()} bg-theme-gradient min-h-10 w-full gap-2 rounded-full px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} bg-theme-gradient min-h-12 w-full gap-2 rounded-full px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.href.login}
             >
               Se connecter
               <span className={'memicon-arrow'} />
             </Link>
             <Link
-              className={`${buttonStyles()} min-h-10 w-full gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} min-h-12 w-full gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.href.register}
             >
               S{"'"}inscrire

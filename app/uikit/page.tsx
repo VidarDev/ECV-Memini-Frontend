@@ -42,7 +42,7 @@ export default function UikitPage() {
           <div className={'flex flex-wrap gap-2'}>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -57,7 +57,7 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} bg-theme-gradient min-h-10 w-fit gap-2 rounded-full px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} bg-theme-gradient min-h-12 w-fit gap-2 rounded-full px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -72,7 +72,7 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 font-raleway text-sm font-bold text-theme-disabled`}
+              className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full border-0 bg-theme-disabled-background px-6 font-raleway text-sm font-bold text-theme-disabled`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -90,7 +90,7 @@ export default function UikitPage() {
           <div className={'flex flex-wrap gap-2'}>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
+              className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full border border-theme-neutral bg-transparent px-6 font-raleway text-sm font-bold text-theme-neutral`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -105,7 +105,7 @@ export default function UikitPage() {
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.links.docs}
             >
               Documentation
@@ -123,7 +123,7 @@ export default function UikitPage() {
           <div className={'flex flex-wrap gap-2'}>
             <Link
               isExternal
-              className={`${buttonStyles()} bg-theme-gradient-neutral min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+              className={`${buttonStyles()} bg-theme-gradient-neutral min-h-12 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
               href={siteConfig.links.docs}
             >
               Documentation

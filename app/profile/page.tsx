@@ -11,11 +11,18 @@ import React from 'react';
 import ThemedRadioImages from '@/components/ThemedRadioImage';
 import { RadioGroup } from '@nextui-org/radio';
 import AddIcons from '@/components/images/AddIcons';
+import { useTheme } from 'next-themes';
 
 export default function Albums() {
+  const { theme, setTheme } = useTheme();
   const { user, loading } = useAuth();
   const router = useRouter();
 
+  useEffect(() => {
+    if (theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  }, [theme]);
   useEffect(() => {
     if (!loading && !user) {
       router.push(siteConfig.href.auth);
@@ -96,7 +103,7 @@ export default function Albums() {
           {/* TODO : replace */}
           <Link
             isExternal
-            className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+            className={`${buttonStyles()} min-h-12 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
             href={'tel:+33606060606'}
           >
             J&apos;appelle un spécialiste
@@ -188,17 +195,19 @@ export default function Albums() {
             <RadioGroup
               className={'flex w-full items-center gap-4 *:w-full *:flex-row *:justify-start'}
               label=""
+              value={theme}
+              onValueChange={setTheme}
             >
-              <ThemedRadioImages value="free">
+              <ThemedRadioImages value="uranus">
                 <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
               </ThemedRadioImages>
-              <ThemedRadioImages value="pro">
+              <ThemedRadioImages value="saturne">
                 <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
               </ThemedRadioImages>
-              <ThemedRadioImages value="enterprise">
+              <ThemedRadioImages value="venus">
                 <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
               </ThemedRadioImages>
-              <ThemedRadioImages value="enterprise2">
+              <ThemedRadioImages value="jupiter">
                 <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
               </ThemedRadioImages>
             </RadioGroup>
@@ -206,7 +215,7 @@ export default function Albums() {
         </div>
         <Link
           isExternal
-          className={`${buttonStyles()} mt-6 min-h-10 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+          className={`${buttonStyles()} mt-6 min-h-12 w-full gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
           href={siteConfig.href.uikit}
         >
           Me déconnecter
