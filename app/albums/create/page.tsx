@@ -1,8 +1,7 @@
 'use client'; // Ajoutez cette ligne au début du fichier
-
 import { Image } from '@nextui-org/image';
 import { Link } from '@nextui-org/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Input } from '@nextui-org/input';
 import { button as buttonStyles } from '@nextui-org/theme';
 import { siteConfig } from '@/config/site';
@@ -11,12 +10,21 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
 const MemoryCreate = () => {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const router = useRouter();
   const [albumName, setAlbumName] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [username, setUsername] = useState<string | undefined>(user?.username);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const buttonHandleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    if (formRef.current) {
+      formRef.current.submit();
+    }
+  };
 
   useEffect(() => {
     setUsername(user?.username);
@@ -61,20 +69,6 @@ const MemoryCreate = () => {
     }
   };
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push(siteConfig.href.auth);
-    }
-  }, [loading, user, router]);
-
-  if (loading) {
-    return <p>Loading...</p>; // ou un spinner de chargement
-  }
-
-  if (!user) {
-    return null; // Ou un composant de chargement supplémentaire
-  }
-
   return (
     <section className="min-w-screen relative flex h-full min-h-screen w-full flex-col items-center justify-between bg-theme-neutral px-4 py-6 text-theme-neutral-invert">
       <div className={'flex w-full'}>
@@ -88,7 +82,11 @@ const MemoryCreate = () => {
         </button>
         {error && <p className="mb-4 text-theme-error">{error}</p>}
       </div>
-      <form className={'flex w-full flex-col items-center gap-16'} onSubmit={handleSubmit}>
+      <form
+        ref={formRef}
+        className={'flex w-full flex-col items-center gap-16'}
+        onSubmit={handleSubmit}
+      >
         <div className={'flex w-full flex-col items-center gap-11'}>
           <div className={'relative flex w-fit flex-col items-center justify-center gap-[14px]'}>
             <span className={'font-pangaia text-3xl font-bold leading-10'}>Crée ton album</span>
@@ -107,15 +105,15 @@ const MemoryCreate = () => {
             />
           </div>
         </div>
-
-        <button
-          className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
-          type="submit"
-        >
-          Soumettre
-          <span className={'memicon-arrow'} />{' '}
-        </button>
       </form>
+      <button
+        className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
+        type="submit"
+        onClick={buttonHandleSubmit}
+      >
+        Soumettre
+        <span className={'memicon-arrow'} />{' '}
+      </button>
     </section>
   );
 };
