@@ -79,7 +79,7 @@ export default function Home() {
         <div className={'mt-8 flex w-full flex-col gap-4 px-4'}>
           <Link
             isExternal
-            className={`${buttonStyles()} min-h-10 w-full gap-2 rounded-full border border-theme-error bg-transparent px-6 font-raleway text-sm font-bold text-theme-error`}
+            className={`${buttonStyles()} min-h-12 w-full gap-2 rounded-full border border-theme-error bg-transparent px-6 font-raleway text-sm font-bold text-theme-error`}
             href={siteConfig.links.docs}
           >
             Supprimer mon compte

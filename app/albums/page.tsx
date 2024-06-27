@@ -146,7 +146,7 @@ export default function AlbumsScreen() {
                   startColor={'var(--theme-primary)'}
                   endColor={'var(--theme-secondary)'}
                   centerColor={'var(--theme-neutral-invert)'}
-                ></AddIcons>{' '}
+                ></AddIcons>
                 {/* TODO : replace */}
                 <span className={'text-base font-medium text-theme-neutral'}>Mon album perso</span>
                 {/* TODO : replace */}
