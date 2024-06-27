@@ -76,7 +76,7 @@ const Login = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-            />{' '}
+            />
             <Input
               required
               className="themed-input text-black"
@@ -85,7 +85,7 @@ const Login = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />{' '}
+            />
             <Link
               isExternal
               className={`${buttonStyles()} min-h-10 w-fit gap-2 rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}

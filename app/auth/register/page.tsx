@@ -1,32 +1,42 @@
 'use client'; // Ajoutez cette ligne au début du fichier
 
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input } from '@nextui-org/input';
 import { button as buttonStyles } from '@nextui-org/theme';
-
-// Définir le type pour les thèmes de couleur
-type ColorTheme = 'URANUS' | 'SATURN' | 'JUPITER' | 'VENUS';
-
-// Ajuster l'objet gradients pour utiliser les clés de ColorTheme
-const gradients: Record<ColorTheme, string> = {
-  URANUS: 'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)',
-  SATURN: 'linear-gradient(45deg, #a18cd1 0%, #fbc2eb 100%)',
-  JUPITER: 'linear-gradient(45deg, #f093fb 0%, #f5576c 100%)',
-  VENUS: 'linear-gradient(45deg, #fddb92 0%, #d1fdff 100%)',
-};
+import { useTheme } from 'next-themes';
+import FiveIcons from '@/components/images/fiveIcons';
+import { Link } from '@nextui-org/link';
+import { siteConfig } from '@/config/site';
+import { Progress } from '@nextui-org/progress';
+import clsx from 'clsx';
+import TwoIcons from '@/components/images/twoIcons';
+import ThreeIcons from '@/components/images/threeIcons';
+import ThemedRadio from '@/components/ThemedRadio';
+import { Select, SelectItem } from '@nextui-org/select';
+import { Avatar } from '@nextui-org/avatar';
+import FourIcons from '@/components/images/fourIcons';
+import { RadioGroup } from '@nextui-org/radio';
 
 const Signup = () => {
-  const [mail, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const { theme, setTheme } = useTheme();
   const [day, setDay] = useState('');
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
+
+  const [mail, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+
   const [identity, setGender] = useState('');
+
   const [error, setError] = useState<string | null>(null);
   const [step, setStep] = useState(1);
-  const [theme, setTheme] = useState(gradients.URANUS); // Default theme
-  const [colorTheme, setColorTheme] = useState<ColorTheme>('URANUS'); // Default ColorTheme
+  const maxSteps: number = 4;
+  useEffect(() => {
+    if (theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  }, [theme]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -68,9 +78,6 @@ const Signup = () => {
 
       // Signup successful
       console.log('Signup successful');
-
-      // Mise à jour du thème après inscription réussie
-      setTheme(gradients[colorTheme]);
     } catch (err) {
       console.error('Signup error:', err);
       setError(err instanceof Error ? err.message : 'An unknown error occurred. Please try again.');
@@ -80,6 +87,12 @@ const Signup = () => {
   const handleContinue = () => {
     // Increment step to show next set of fields
     setStep((prevStep) => prevStep + 1);
+    setError(null); // Clear error message when moving to next step
+  };
+
+  const handlePrevious = () => {
+    // Increment step to show next set of fields
+    setStep((prevStep) => prevStep - 1);
     setError(null); // Clear error message when moving to next step
   };
 
@@ -104,48 +117,57 @@ const Signup = () => {
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
   const years = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i);
 
-  const handleColorThemeChange = (selectedTheme: ColorTheme) => {
-    setTheme(gradients[selectedTheme]);
-    setColorTheme(selectedTheme);
-  };
-
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="p-8">
-        <div className="mb-6 flex flex-col items-center justify-center text-black">
-          <div>
-            <img
-              alt="Logo"
-              height={'200rem'}
-              src="/images/logo_typographique_black.svg"
-              width={'200rem'}
-            />
-          </div>
-          <div className="flex flex-col items-center">
-            <p>Inscription</p>
-            <img
-              alt="Underline"
-              className="ml-10"
-              height={'50rem'}
-              src="/images/underline_title.svg"
-              width={'80rem'}
-            />
-          </div>
+    <section className="min-w-screen relative flex h-full min-h-screen w-full flex-col items-center justify-between px-4 py-6">
+      <div className={'flex w-full'}>
+        <div className={clsx('w-full flex-col gap-8', step > 1 ? 'flex' : 'hidden')}>
+          <Progress
+            aria-label="Downloading..."
+            className="themed-progress w-full"
+            size="md"
+            value={(100 / 4) * step}
+          />
+          <button
+            className={'w-fit'}
+            onClick={() => {
+              if (step > 1) handlePrevious();
+            }}
+          >
+            <span className={'memicon-arrow-left text-5xl'} />
+          </button>
+          {error && <p className="mb-4 text-theme-error">{error}</p>}
         </div>
-
-        {error && <p className="mb-4 text-red-500">{error}</p>}
-
-        <form onSubmit={handleSubmit}>
-          {step === 1 && (
-            <div className="mb-4">
+      </div>
+      <form className={'flex w-full flex-col items-center gap-16'}>
+        {step === 1 && (
+          <>
+            <span className={'memicon-logo text-[206px]'}></span>
+            <div className={'flex w-full flex-col items-center gap-6'}>
+              <div className={'relative w-fit pb-7'}>
+                <FiveIcons
+                  className={'absolute -right-2 bottom-2 -rotate-[2.4deg]'}
+                  startColor={'var(--theme-primary)'}
+                  endColor={'var(--theme-secondary)'}
+                />
+                <span className={'font-pangaia text-2xl font-bold'}>Bienvenue sur Memini</span>
+              </div>
+              <span className={'text-center font-raleway text-sm font-normal'}>
+                Vous avez déjà un compte ?{' '}
+                <Link
+                  className={`justify-center text-center font-raleway text-sm font-bold text-theme-neutral underline`}
+                  href={siteConfig.href.login}
+                >
+                  Se connecter
+                </Link>
+              </span>
               <Input
                 required
                 className="themed-input text-black"
-                id="mail"
-                label="Email"
-                type="mail"
-                value={mail}
-                onChange={(e) => setEmail(e.target.value)}
+                id="username"
+                label="Mail"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <Input
                 required
@@ -156,11 +178,34 @@ const Signup = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <Input
+                required
+                className="themed-input text-black"
+                id="confirm-password"
+                label="Confirmer le mot de passe"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-          )}
+          </>
+        )}
 
-          {step === 2 && (
-            <div className="mb-4">
+        {step === 2 && (
+          <>
+            <div className={'flex w-full flex-col items-center gap-6'}>
+              <div className={'flex w-full'}>
+                <div className={'relative flex w-fit'}>
+                  {/*<TwoIcons*/}
+                  {/*  className={'absolute -right-0 -top-1 h-[24px] w-[27px]'}*/}
+                  {/*  startColor={'var(--theme-primary)'}*/}
+                  {/*  endColor={'var(--theme-secondary)'}*/}
+                  {/*/>*/}
+                  <span className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
+                    Choisis un nom qui te ressemble
+                  </span>
+                </div>
+              </div>
               <Input
                 required
                 className="themed-input text-black"
@@ -171,109 +216,108 @@ const Signup = () => {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-          )}
+          </>
+        )}
 
-          {step === 3 && (
-            <div className="mb-4">
-              <div className="flex space-x-2">
-                <select
-                  required
-                  className="themed-input text-black"
+        {step === 3 && (
+          <>
+            <div className={'flex w-full flex-col items-center gap-6'}>
+              <div className={'flex w-full'}>
+                <div className={'relative flex w-fit'}>
+                  {/*<ThreeIcons*/}
+                  {/*  className={'absolute -bottom-3 -right-4 h-[20px] w-[54px]'}*/}
+                  {/*  startColor={'var(--theme-primary)'}*/}
+                  {/*  endColor={'var(--theme-secondary)'}*/}
+                  {/*/>*/}
+                  <span className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
+                    Pour te recommander au mieux
+                  </span>
+                </div>
+              </div>
+              <div className={'flex w-full items-center gap-2'}>
+                <Select
+                  isRequired
+                  className="themed-select no-arrow max-w-24"
+                  variant={'bordered'}
                   id="day"
-                  value={day}
+                  label={'Jour'}
                   onChange={(e) => setDay(e.target.value)}
                 >
-                  <option value="">Jour</option>
-                  {days.map((d) => (
-                    <option key={d} value={d}>
-                      {d}
-                    </option>
+                  {days.map((key) => (
+                    <SelectItem key={key}>{key}</SelectItem>
                   ))}
-                </select>
-                <select
-                  required
-                  className="themed-input text-black"
+                </Select>
+                <div className={'relative flex h-full w-4 items-center justify-center'}>
+                  <div className="absolute h-0.5 w-6 origin-center rotate-[105deg] border border-theme-neutral"></div>
+                </div>
+                <Select
+                  isRequired
+                  className="themed-select no-arrow max-w-24"
+                  variant={'bordered'}
                   id="month"
-                  value={month}
+                  label={'Mois'}
                   onChange={(e) => setMonth(e.target.value)}
                 >
-                  <option value="">Mois</option>
                   {months.map((m) => (
-                    <option key={m} value={m}>
-                      {m}
-                    </option>
+                    <SelectItem key={m}>{m}</SelectItem>
                   ))}
-                </select>
-                <select
-                  required
-                  className="themed-input text-black"
+                </Select>
+                <div className={'relative flex h-full w-4 items-center justify-center'}>
+                  <div className="absolute h-0.5 w-6 origin-center rotate-[105deg] border border-theme-neutral"></div>
+                </div>
+                <Select
+                  isRequired
+                  className="themed-select no-arrow max-w-24"
+                  variant={'bordered'}
                   id="year"
-                  value={year}
+                  label={'Année'}
                   onChange={(e) => setYear(e.target.value)}
                 >
-                  <option value="">Année</option>
                   {years.map((y) => (
-                    <option key={y} value={y}>
-                      {y}
-                    </option>
+                    <SelectItem key={y}>{y}</SelectItem>
                   ))}
-                </select>
+                </Select>
               </div>
             </div>
-          )}
+          </>
+        )}
 
-          {step === 4 && (
-            <div className="mb-4">
-              <p>Genre :</p>
-              <div>
-                <label>
-                  <input
-                    required
-                    className="mr-2"
-                    name="identity"
-                    type="radio"
-                    value="HE"
-                    onChange={(e) => setGender(e.target.value)}
-                  />
-                  Il
-                </label>
-                <label className="ml-4">
-                  <input
-                    required
-                    className="mr-2"
-                    name="identity"
-                    type="radio"
-                    value="SHE"
-                    onChange={(e) => setGender(e.target.value)}
-                  />
-                  Elle
-                </label>
-                <label className="ml-4">
-                  <input
-                    required
-                    className="mr-2"
-                    name="identity"
-                    type="radio"
-                    value="THEY"
-                    onChange={(e) => setGender(e.target.value)}
-                  />
-                  Iel
-                </label>
+        {step === 4 && (
+          <>
+            <div className={'flex w-full flex-col items-center gap-6'}>
+              <div className={'flex w-full'}>
+                <div className={'relative flex w-fit'}>
+                  {/*<FourIcons*/}
+                  {/*  className={'absolute bottom-0.5 right-2 h-[28px] w-[18px]'}*/}
+                  {/*  startColor={'var(--theme-primary)'}*/}
+                  {/*  endColor={'var(--theme-secondary)'}*/}
+                  {/*/>*/}
+                  <span className={'w-fit max-w-72 font-pangaia text-3xl font-bold leading-10'}>
+                    Dans quel pronom te reconnais-tu ?
+                  </span>
+                </div>
               </div>
+              <RadioGroup className={'flex w-full flex-col gap-6'} label="">
+                <ThemedRadio value="HE">il</ThemedRadio>
+                <ThemedRadio value="SHE">elle</ThemedRadio>
+                <ThemedRadio value="THEY">iel</ThemedRadio>
+              </RadioGroup>
             </div>
-          )}
-
-          <button
-            className={`${buttonStyles()} gap-2 rounded-full bg-theme-neutral p-2 pl-10 pr-10 text-sm font-bold text-theme-neutral-invert`}
-            type={step < 4 ? 'button' : 'submit'}
-            onClick={step < 4 ? handleContinue : undefined}
-          >
-            {step < 4 ? 'Continuer' : 'Enregistrer'}
-            <span className="memicon-arrow" />{' '}
-          </button>
-        </form>
-      </div>
-    </div>
+          </>
+        )}
+      </form>
+      <button
+        className={`${buttonStyles()} min-h-10 w-full gap-2 !rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`}
+        type={step < maxSteps ? 'button' : 'submit'}
+        onClick={() => {
+          if (step < maxSteps) handleContinue();
+        }}
+      >
+        {/*{loginStatus === 'loading' ? 'Se connecte à...' : 'Se connecter'}*/}
+        Continuer
+        <span className={'memicon-arrow'} />{' '}
+      </button>
+    </section>
   );
 };
 
