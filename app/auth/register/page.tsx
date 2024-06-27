@@ -10,7 +10,6 @@ import {siteConfig} from '@/config/site';
 import {Progress} from '@nextui-org/progress';
 import clsx from 'clsx';
 import ThemedRadio from '@/components/ThemedRadio';
-import {Select, SelectItem} from '@nextui-org/select';
 import {RadioGroup} from '@nextui-org/radio';
 import {useRouter} from "next/navigation";
 import {useAuth} from "@/context/AuthContext";
@@ -47,68 +46,50 @@ const Signup = () => {
 		}
 	}, [theme]);
 
-	const handleDisableButton =() => {
-		setDisableButton(!error && !mailError && !passwordError && !usernameError);
-	}
+	useEffect(() => {
+		setDisableButton(error !== null || mailError !== null || passwordError !== null || usernameError !== null);
+	}, [error, mailError, usernameError, passwordError]);
 
 	const handleMailIsFree = async () => {
-		const options = {
-			method: "GET",
-			headers: {
-				"Accept": "application/json"
-			}
-		}
-
 		try {
-			const response = await fetch(`http://localhost:8080/isMailFree?mail=${mail}`, options);
+			const response = await fetch(`http://localhost:8080/isMailFree?mail=${mail}`);
 
 			if (response.ok) {
-				const data = await response.json();
-				setDisableButton(false);
-				setMailError(data.errorMessage);
+				setMailError(null);
 			} else {
-				setDisableButton(true);
 				const data = await response.json();
-				setMailError((data.errorMessage));
+				setMailError(data.errorMessage);
 			}
 		} catch (e) {
 			setMailError("Erreur lors du contact du serveur");
 		}
+		setError(null);
 	}
 
 	const handleUsernameIsFree = async () => {
-		const options = {
-			method: "GET",
-			headers: {
-				"Accept": "application/json"
-			}
-		}
+		try {
+			const response = await fetch(`http://localhost:8080/isUsernameFree?username=${username}`);
 
-		const response = await fetch(`http://localhost:8080/isUsernameFree?username=${username}`);
-
-		if (response.ok) {
-			const data = await response.json();
-			if (!data.success) {
-				setDisableButton(true);
-				setError(data.errorMessage);
+			if (response.ok) {
+				setUsernameError(null);
 			} else {
-				setDisableButton(false);
-				setError(null);
+				const data = await response.json();
+				setUsernameError(data.errorMessage);
 			}
-		} else {
-			setDisableButton(false);
-			setError("Erreur lors du contact du serveur");
+		} catch (e) {
+			setMailError("Erreur lors du contact du serveur");
 		}
+		setError(null);
 	}
 
 	const checkPasswordsAreTheSame = () => {
 		if (password !== confirmPassword) {
-			setDisableButton(true);
 			setPasswordError("Les mots de passe doivent être identiques");
 		} else {
-			setDisableButton(false);
 			setPasswordError(null);
 		}
+
+		setError(null);
 	}
 
 	const handleSubmit = async () => {
@@ -129,32 +110,30 @@ const Signup = () => {
 			return;
 		}
 
-		const birthDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+		const birthDate = `${year.padStart(4, '0')}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
 		try {
-			const response = await fetch(`${process.env.BACK_URL}/register`, {
+			const response = await fetch(`http://localhost:8080/register`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 					'Accept': 'application/json',
 				},
-				body: JSON.stringify({mail, password, username, birthDate, identity}),
+				body: JSON.stringify({mail, password, username, birthDate, identity, colorTheme: 'saturn'}),
 			});
 
 			if (!response.ok) {
 				const errorData = await response.json();
-				console.log(errorData);
-				throw new Error(errorData.message || 'Signup failed');
+				setError(errorData.errorMessage);
 			} else {
 				const data = await response.json();
-				console.log(data);
-				// login(username);
-				// router.push(siteConfig.href.home);
+				login(username);
+				router.push(siteConfig.href.home);
 			}
 
 		} catch (err) {
 			console.error('Signup error:', err);
-			setError(err instanceof Error ? err.message : 'An unknown error occurred. Please try again.');
+			setError("Erreur lors du contact du serveur");
 		}
 	};
 
@@ -295,6 +274,7 @@ const Signup = () => {
 								type="text"
 								value={username}
 								onChange={(e) => setUsername(e.target.value)}
+								onBlur={handleUsernameIsFree}
 							/>
 						</div>
 					</>
@@ -311,55 +291,28 @@ const Signup = () => {
 									{/*  endColor={'var(--theme-secondary)'}*/}
 									{/*/>*/}
 									<span className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
-                    Pour te recommander au mieux
+                    Quelle est ta date de naissance ?
                   </span>
 								</div>
 							</div>
 							<div className={'flex w-full items-center gap-2'}>
-								<Select
-									isRequired
-									className="themed-select no-arrow max-w-24"
-									variant={'bordered'}
-									id="day"
-									label={'Jour'}
-									onChange={(e) => setDay(e.target.value)}
-								>
-									{days.map((key) => (
-										<SelectItem key={key}>{key}</SelectItem>
-									))}
-								</Select>
+								<Input className={'themed-input'} label="Jour" type="number" value={day} onChange={(e) => {setError(null); setDay(e.target.value)}} />
 								<div className={'relative flex h-full w-4 items-center justify-center'}>
 									<div
 										className="absolute h-0.5 w-6 origin-center rotate-[105deg] border border-theme-neutral"></div>
 								</div>
-								<Select
-									isRequired
-									className="themed-select no-arrow max-w-24"
-									variant={'bordered'}
-									id="month"
-									label={'Mois'}
-									onChange={(e) => setMonth(e.target.value)}
-								>
-									{months.map((m) => (
-										<SelectItem key={m}>{m}</SelectItem>
-									))}
-								</Select>
+								<Input className={'themed-input'} label="Mois" type="number" value={month} onChange={(e) => {
+									setError(null);
+									setMonth(e.target.value)
+								}} />
 								<div className={'relative flex h-full w-4 items-center justify-center'}>
 									<div
 										className="absolute h-0.5 w-6 origin-center rotate-[105deg] border border-theme-neutral"></div>
 								</div>
-								<Select
-									isRequired
-									className="themed-select no-arrow max-w-24"
-									variant={'bordered'}
-									id="year"
-									label={'Année'}
-									onChange={(e) => setYear(e.target.value)}
-								>
-									{years.map((y) => (
-										<SelectItem key={y}>{y}</SelectItem>
-									))}
-								</Select>
+								<Input className={'themed-input'} label="Année" type="number" value={year} onChange={(e) => {
+									setError(null);
+									setYear(e.target.value)
+								}} />
 							</div>
 						</div>
 					</>
@@ -380,7 +333,7 @@ const Signup = () => {
                   </span>
 								</div>
 							</div>
-							<RadioGroup className={'flex w-full flex-col gap-6'} label="">
+							<RadioGroup className={'flex w-full flex-col gap-6'} label="" onChange={(e) => {setError(null); setGender(e.target.value)}}>
 								<ThemedRadio value="HE">il</ThemedRadio>
 								<ThemedRadio value="SHE">elle</ThemedRadio>
 								<ThemedRadio value="THEY">iel</ThemedRadio>
@@ -392,15 +345,9 @@ const Signup = () => {
 			<button
 				className={clsx(buttonStyles(), `min-h-12 w-full gap-2 !rounded-full bg-theme-neutral px-6 font-raleway text-sm font-bold text-theme-neutral-invert`, disableButton ? '!text-theme-disabled !bg-theme-disabled' : '')}
 				type={step < maxSteps ? 'button' : 'submit'}
-				onClick={() => {
-					if (step < maxSteps) {
-						handleSubmit();
-					}
-				}}
-				disabled={disableButton}
+				onClick={handleSubmit} disabled={disableButton}
 			>
-				{/*{loginStatus === 'loading' ? 'Se connecte à...' : 'Se connecter'}*/}
-				Continuer
+				{step < maxSteps ? 'Continuer' : 'Créer mon compte'}
 				<span className={'memicon-arrow'} />{' '}
 			</button>
 		</section>
