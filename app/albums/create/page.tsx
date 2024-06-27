@@ -1,5 +1,6 @@
 'use client'; // Ajoutez cette ligne au début du fichier
-
+import { Image } from '@nextui-org/image';
+import { Link } from '@nextui-org/link';
 import React, { useState, useEffect } from 'react';
 import { Input } from '@nextui-org/input';
 import { button as buttonStyles } from '@nextui-org/theme';
@@ -13,19 +14,12 @@ const MemoryCreate = () => {
   const router = useRouter();
   const [albumName, setAlbumName] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [step, setStep] = useState(1);
   const [success, setSuccess] = useState(false);
-  const maxSteps: number = 2;
   const [username, setUsername] = useState<string | undefined>(user?.username);
 
   useEffect(() => {
-    setUsername(user?.username); // Met à jour l'username lorsque user change
+    setUsername(user?.username);
   }, [user]);
-
-  const handleContinue = () => {
-    setStep((prevStep) => prevStep + 1);
-    setError(null);
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,7 +53,7 @@ const MemoryCreate = () => {
 
       console.log('Album creation successful');
       setSuccess(true);
-      handleContinue();
+      router.push(siteConfig.href.albums); // Redirige vers la liste des albums après la création
     } catch (err) {
       console.error('Album creation error:', err);
       setError(err instanceof Error ? err.message : 'An unknown error occurred. Please try again.');
@@ -69,16 +63,14 @@ const MemoryCreate = () => {
   return (
     <section className="min-w-screen relative flex h-full min-h-screen w-full flex-col items-center justify-between bg-theme-neutral px-4 py-6 text-theme-neutral-invert">
       <div className={'flex w-full'}>
-        <div className={clsx('w-full flex-col gap-8', step === 1 ? 'flex' : 'hidden')}>
-          <button
-            className={'w-fit'}
-            onClick={() => {
-              router.push(siteConfig.href.home);
-            }}
-          >
-            <span className={'memicon-close text-5xl'} />
-          </button>
-        </div>
+        <button
+          className={'w-fit'}
+          onClick={() => {
+            router.push(siteConfig.href.home);
+          }}
+        >
+          <span className={'memicon-close text-5xl'} />
+        </button>
         {error && <p className="mb-4 text-theme-error">{error}</p>}
       </div>
       <div className="flex items-center justify-center mb-4">
@@ -91,69 +83,33 @@ const MemoryCreate = () => {
         )}
       </div>
       <form className={'flex w-full flex-col items-center gap-16'} onSubmit={handleSubmit}>
-        {step === 1 && (
-          <>
-            <div className={'flex w-full flex-col items-center gap-11'}>
-              <div
-                className={'relative flex w-fit flex-col items-center justify-center gap-[14px]'}
-              >
-                <span className={'font-pangaia text-3xl font-bold leading-10'}>Crée ton album</span>
-                <span className={'font-raleway text-sm font-normal leading-tight'}>
-                  Décris ton album !
-                </span>
-              </div>
-              <div className={'flex w-full flex-col items-center gap-3.5'}>
-                <Input
-                  id="albumName"
-                  className={'themed-input w-full'}
-                  placeholder={'Title'}
-                  type="text"
-                  value={albumName}
-                  onChange={(e) => setAlbumName(e.target.value)}
-                />
-              </div>
-            </div>
-          </>
-        )}
+        <div className={'flex w-full flex-col items-center gap-11'}>
+          <div className={'relative flex w-fit flex-col items-center justify-center gap-[14px]'}>
+            <span className={'font-pangaia text-3xl font-bold leading-10'}>Crée ton album</span>
+            <span className={'font-raleway text-sm font-normal leading-tight'}>
+              Décris ton album !
+            </span>
+          </div>
+          <div className={'flex w-full flex-col items-center gap-3.5'}>
+            <Input
+              id="albumName"
+              className={'themed-input w-full'}
+              placeholder={'Title'}
+              type="text"
+              value={albumName}
+              onChange={(e) => setAlbumName(e.target.value)}
+            />
+          </div>
+        </div>
 
-        {step === 2 && success && (
-          <>
-            <div className={'flex w-full flex-col items-center gap-11'}>
-              <div className={'flex w-full flex-col items-center gap-3.5'}>
-                <img
-                  src={'/images/check.svg'}
-                  className={'w-[60px]'}
-                  alt={''}
-                  width={200}
-                  height={200}
-                />
-                <span className="w-72 text-center font-pangaia text-3xl font-bold leading-10">
-                  Ton album a bien été ajouté !
-                </span>
-              </div>
-            </div>
-          </>
-        )}
-        {step === maxSteps && (
-          <button
-            className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
-            type="submit"
-          >
-            Soumettre
-            <span className={'memicon-arrow'} />{' '}
-          </button>
-        )}
-      </form>
-      {step < maxSteps && (
         <button
           className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
-          type="button"
-          onClick={handleContinue}
+          type="submit"
         >
-          Continuer
+          Soumettre
           <span className={'memicon-arrow'} />{' '}
         </button>
-      )}
+      </form>
     </section>
   );
 };
