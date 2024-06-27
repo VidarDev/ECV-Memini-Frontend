@@ -35,6 +35,7 @@ export const siteConfig = {
     register: '/auth/register',
     home: '/',
     albums: '/albums',
+    album: '/albums/album',
     albumCreate: '/albums/create',
     albumDelete: '/albums/delete',
     memoryCreate: '/albums/memory/create',
