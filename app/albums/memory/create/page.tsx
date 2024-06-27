@@ -20,12 +20,14 @@ import { useRouter } from 'next/navigation';
 import ThemedRadioImages from '@/components/ThemedRadioImage';
 import ThemedTextarea from '@/components/ThemedTextarea';
 import AddIcons from '@/components/images/AddIcons';
+import { useAuth } from '@/context/AuthContext';
 
 const MemoryCreate = () => {
   const [error, setError] = useState<string | null>(null);
   const [step, setStep] = useState(1);
   const [type, setType] = useState(1);
   const router = useRouter();
+  const { user, loading } = useAuth();
   const maxSteps: number = 5;
   const handleContinue = () => {
     // Increment step to show next set of fields
@@ -38,6 +40,20 @@ const MemoryCreate = () => {
     setStep((prevStep) => prevStep - 1);
     setError(null); // Clear error message when moving to next step
   };
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push(siteConfig.href.auth);
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
 
   return (
     <section className="min-w-screen relative flex h-full min-h-screen w-full flex-col items-center justify-between bg-theme-neutral px-4 py-6 text-theme-neutral-invert">

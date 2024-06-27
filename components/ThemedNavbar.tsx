@@ -23,6 +23,17 @@ export const ThemedNavbar = () => {
     return null;
   }
 
+  if (splitPathname[1] === 'albums' && splitPathname[2] === 'album') {
+    return null;
+  }
+
+  if (splitPathname[1] === 'albums' && splitPathname[2] === 'create') {
+    return null;
+  }
+  if (splitPathname[1] === 'albums' && splitPathname[2] === 'delete') {
+    return null;
+  }
+
   return (
     <>
       <NextUINavbar className={'themed-navbar bg-transparent backdrop-filter-none'}>
@@ -70,7 +81,7 @@ export const ThemedNavbar = () => {
             </div>
             <div className={'flex h-full min-w-20 justify-center'}>
               <li className={'absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-1/2'}>
-                <Link href="/uikit">
+                <Link href={siteConfig.href.memoryCreate}>
                   <NavIcons
                     className={'ml-1'}
                     startColor={'var(--theme-primary)'}

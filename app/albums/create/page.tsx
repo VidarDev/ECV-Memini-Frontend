@@ -1,4 +1,5 @@
 'use client'; // Ajoutez cette ligne au début du fichier
+
 import { Image } from '@nextui-org/image';
 import { Link } from '@nextui-org/link';
 import React, { useState, useEffect } from 'react';
@@ -10,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
 const MemoryCreate = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const router = useRouter();
   const [albumName, setAlbumName] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -59,6 +60,20 @@ const MemoryCreate = () => {
       setError(err instanceof Error ? err.message : 'An unknown error occurred. Please try again.');
     }
   };
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push(siteConfig.href.auth);
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>; // ou un spinner de chargement
+  }
+
+  if (!user) {
+    return null; // Ou un composant de chargement supplémentaire
+  }
 
   return (
     <section className="min-w-screen relative flex h-full min-h-screen w-full flex-col items-center justify-between bg-theme-neutral px-4 py-6 text-theme-neutral-invert">
