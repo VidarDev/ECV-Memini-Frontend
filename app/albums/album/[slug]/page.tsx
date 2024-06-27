@@ -118,7 +118,7 @@ const MemoryCreate = ({ params }: { params: { slug: string } }) => {
       >
         <div
           className={
-            'max-w-emotion max-h-emotion relative flex h-screen w-full flex-col items-center blur-lg'
+            'max-w-emotion max-h-emotion relative flex h-screen w-full flex-col items-center blur-2xl'
           }
         >
           {groupedData.map((group: GroupedDataItem, key: number) => (
