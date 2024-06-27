@@ -73,7 +73,7 @@ export default function Home() {
               endColor={'var(--theme-neutral)'}
             />
             <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
-              Hello ${user.username},
+              Hello {user.username},
             </h1>
             {/* TODO : replace */}
           </div>
