@@ -198,17 +198,33 @@ export default function Albums() {
               value={theme}
               onValueChange={setTheme}
             >
-              <ThemedRadioImages value="uranus">
-                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
-              </ThemedRadioImages>
               <ThemedRadioImages value="saturne">
-                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+                <div
+                  className={
+                    'saturne bg-theme-gradient h-full min-h-[52px] w-full min-w-[52px] rounded-full'
+                  }
+                ></div>
+              </ThemedRadioImages>
+              <ThemedRadioImages value="uranus">
+                <div
+                  className={
+                    'uranus bg-theme-gradient h-full min-h-[52px] w-full min-w-[52px] rounded-full'
+                  }
+                ></div>
               </ThemedRadioImages>
               <ThemedRadioImages value="venus">
-                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+                <div
+                  className={
+                    'venus bg-theme-gradient h-full min-h-[52px] w-full min-w-[52px] rounded-full'
+                  }
+                ></div>
               </ThemedRadioImages>
               <ThemedRadioImages value="jupiter">
-                <img alt={''} src={'https://picsum.photos/id/237/200/200'} />
+                <div
+                  className={
+                    'jupiter bg-theme-gradient h-full min-h-[52px] w-full min-w-[52px] rounded-full'
+                  }
+                ></div>
               </ThemedRadioImages>
             </RadioGroup>
           </div>

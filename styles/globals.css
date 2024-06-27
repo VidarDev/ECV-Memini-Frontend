@@ -16,6 +16,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.max-w-emotion {
+    width: clamp(200px, 70vw, 700px);
+    max-width: 100%;
+}
+
+.max-h-emotion {
+    height: clamp(200px, 70vh, 700px);
+    max-height: 100%;
+}
+
 .theme-shadow {
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
 }
