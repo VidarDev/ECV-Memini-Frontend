@@ -1,41 +1,106 @@
 'use client'; // Ajoutez cette ligne au début du fichier
-
 import React, { useEffect, useState } from 'react';
-import { Input } from '@nextui-org/input';
 import { button as buttonStyles } from '@nextui-org/theme';
 import { siteConfig } from '@/config/site';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
-import ThemedTextarea from '@/components/ThemedTextarea';
 import { useAuth } from '@/context/AuthContext';
 import ThemedRadio from '@/components/ThemedRadio';
 import { RadioGroup } from '@nextui-org/radio';
+
+interface Album {
+  albumName: string;
+}
 
 const MemoryCreate = () => {
   const [error, setError] = useState<string | null>(null);
   const [step, setStep] = useState(1);
   const router = useRouter();
   const { user, loading } = useAuth();
+  const [albums, setAlbums] = useState<Album[]>([]);
+  const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
   const maxSteps: number = 2;
 
+  const getAlbums = async (username: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/album/getAlbums?username=${username}`
+      );
+      if (!response.ok) {
+        throw new Error('Impossible de contacter l`API');
+      }
+      const data = await response.json();
+      if (Array.isArray(data) && data.length > 0) {
+        setAlbums(data);
+      } else {
+        console.error('Aucun album trouvé:', data);
+      }
+    } catch (error) {
+      console.error('Erreur lors de la récupération des albums:', error);
+    }
+  };
+
+  const handleDeleteAlbum = async () => {
+    if (!selectedAlbum) {
+      setError('Veuillez sélectionner un album à supprimer.');
+      return;
+    }
+
+    console.log('Username:', user?.username); // Vérifiez le nom d'utilisateur
+    console.log('Album à supprimer:', selectedAlbum?.albumName); // Vérifiez l'album à supprimer
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/album/delete`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: user?.username,
+            albumName: selectedAlbum?.albumName,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to delete album: ${response.statusText}`);
+      }
+
+      console.log('Album supprimé avec succès');
+      setAlbums(albums.filter(album => album.albumName !== selectedAlbum.albumName));
+      setSelectedAlbum(null);
+      setStep(maxSteps); // Passe à l'étape 2 après la suppression
+    } catch (error) {
+      console.error('Erreur lors de la suppression de l\'album:', error);
+      setError('Erreur lors de la suppression de l\'album');
+    }
+  };
+
   const handleContinue = () => {
-    // Increment step to show next set of fields
-    setStep((prevStep) => prevStep + 1);
-    setError(null); // Clear error message when moving to next step
+    if (step === 1 && !selectedAlbum) {
+      setError('Veuillez sélectionner un album avant de continuer.');
+      return;
+    }
+    setStep(prevStep => prevStep + 1);
+    setError(null);
   };
 
   useEffect(() => {
     if (!loading && !user) {
       router.push(siteConfig.href.auth);
+    } else if (user?.username) {
+      getAlbums(user.username);
     }
   }, [loading, user, router]);
 
   if (loading) {
-    return <p>Loading...</p>; // ou un spinner de chargement
+    return <p>Loading...</p>;
   }
 
   if (!user) {
-    return null; // Ou un composant de chargement supplémentaire
+    return null;
   }
 
   return (
@@ -65,11 +130,30 @@ const MemoryCreate = () => {
                 </span>
               </div>
               <div className={'flex w-full flex-col items-center gap-3.5'}>
-                <RadioGroup className={'flex w-full flex-col *:gap-3.5'} label="">
-                  <ThemedRadio value="1">Mon album personnel</ThemedRadio>
-                  <ThemedRadio value="2">Album 2</ThemedRadio>
-                  <ThemedRadio value="3">Album 3</ThemedRadio>
-                </RadioGroup>
+                {albums.length === 0 ? (
+                  <p className="text-theme-neutral-invert">Aucun album trouvé.</p>
+                ) : (
+                  <RadioGroup
+                    className={'flex w-full flex-col gap-3.5'}
+                    label=""
+                    value={selectedAlbum?.albumName}
+                    onChange={(e) => {
+                      const albumName = e.target.value;
+                      const album = albums.find(album => album.albumName === albumName);
+                      setSelectedAlbum(album || null);
+                    }}
+                  >
+                    {albums.map(album => (
+                      <ThemedRadio
+                        key={album.albumName}
+                        value={album.albumName}
+                        checked={selectedAlbum?.albumName === album.albumName}
+                      >
+                        {album.albumName}
+                      </ThemedRadio>
+                    ))}
+                  </RadioGroup>
+                )}
               </div>
             </div>
           </>
@@ -94,17 +178,25 @@ const MemoryCreate = () => {
           </>
         )}
       </form>
-      <button
-        className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
-        type={step < maxSteps ? 'button' : 'submit'}
-        onClick={() => {
-          if (step < maxSteps) handleContinue();
-        }}
-      >
-        {/*{loginStatus === 'loading' ? 'Se connecte à...' : 'Se connecter'}*/}
-        Continuer
-        <span className={'memicon-arrow'} />{' '}
-      </button>
+      {step < maxSteps ? (
+        <button
+          className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
+          type="button"
+          onClick={handleContinue}
+        >
+          Continuer
+          <span className={'memicon-arrow'} />
+        </button>
+      ) : (
+        <button
+          className={`${buttonStyles()} min-h-12 w-full gap-2 !rounded-full bg-theme-primary px-6 font-raleway text-sm font-bold text-theme-neutral`}
+          type="button"
+          onClick={handleDeleteAlbum}
+        >
+          Supprimer l'album
+          <span className={'memicon-arrow'} />
+        </button>
+      )}
     </section>
   );
 };

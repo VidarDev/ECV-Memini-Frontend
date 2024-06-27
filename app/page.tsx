@@ -50,8 +50,6 @@ export default function Home() {
 
   return (
     <>
-    <button
-    onClick={getDateWithMemories}> Click </button>
       <section
         className={'bg-theme-gradient relative flex min-h-[250px] flex-col rounded-b-[80px] px-4'}
       >
@@ -74,7 +72,7 @@ export default function Home() {
               startColor={'var(--theme-neutral)'}
               endColor={'var(--theme-neutral)'}
             />
-            <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Hello ${user.username},</h1>
+            <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Hello {user.username},</h1>
             {/* TODO : replace */}
           </div>
         </div>
