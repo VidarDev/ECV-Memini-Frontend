@@ -18,14 +18,14 @@
     --theme-error-bg: #FFE5E5;
     --theme-disabled: #60575A;
     --theme-disabled-bg: #DDDADA;
-    --emotion-anger: #F33;
-    --emotion-joy: #FFEF5C;
-    --emotion-sadness: #2AF4DC;
-    --emotion-fatigue: #B466FF;
-    --emotion-stress: #FF671A;
-    --emotion-excitement: #7777F8;
-    --emotion-faith: #F967E0;
-    --emotion-pride: #52FB18;
+    --emotion-angry: #F33;
+    --emotion-happy: #FFEF5C;
+    --emotion-sad: #2AF4DC;
+    --emotion-tired: #B466FF;
+    --emotion-stressed: #FF671A;
+    --emotion-excited: #7777F8;
+    --emotion-confident: #F967E0;
+    --emotion-proud: #52FB18;
 }
 
 .uranus, html[data-theme="uranus"] {
@@ -35,7 +35,7 @@
     --theme-primary: #4747F3;
     --theme-primary-200: #D9D9FD;
     --theme-primary-400: #9F9FF9;
-    --theme-primary-light: #F1F1FE;
+    --theme-primary-light: #BCBCFB;
     --theme-primary-hover: #F1F1FE;
     --theme-secondary: #E6CCFF;
     --theme-secondary-light: #D4A8FF;
@@ -114,4 +114,36 @@
     --theme-error-bg: #FFE5E5;
     --theme-disabled: #60575A;
     --theme-disabled-bg: #DDDADA;
+}
+
+.bg-emotions-angry {
+    background-color: var(--emotion-angry);
+}
+
+.bg-emotions-happy {
+    background-color: var(--emotion-happy);
+}
+
+.bg-emotions-sad {
+    background-color: var(--emotion-sad);
+}
+
+.bg-emotions-tired {
+    background-color: var(--emotion-tired);
+}
+
+.bg-emotions-stressed {
+    background-color: var(--emotion-stressed);
+}
+
+.bg-emotions-excited {
+    background-color: var(--emotion-excited);
+}
+
+.bg-emotions-confident {
+    background-color: var(--emotion-confident);
+}
+
+.bg-emotions-proud {
+    background-color: var(--emotion-proud);
 }
