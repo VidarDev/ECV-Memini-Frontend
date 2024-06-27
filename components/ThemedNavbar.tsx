@@ -23,6 +23,10 @@ export const ThemedNavbar = () => {
     return null;
   }
 
+  if (splitPathname[1] === 'albums' && splitPathname[2] === 'album') {
+    return null;
+  }
+
   return (
     <>
       <NextUINavbar className={'themed-navbar bg-transparent backdrop-filter-none'}>

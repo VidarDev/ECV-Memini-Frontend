@@ -139,7 +139,7 @@ export default function AlbumsScreen() {
             <div className={'w-1/2 px-2'}>
               <Link
                 className={`app-min-h-card theme-shadow relative flex min-h-full w-full min-w-full flex-1 flex-col gap-4 rounded-2xl bg-theme-neutral-invert p-4 text-[102px] *:w-full *:!max-w-full`}
-                href={siteConfig.href.uikit}
+                href={siteConfig.href.albumCreate}
               >
                 <AddIcons
                   className={'h-[24px] w-[24px]'}

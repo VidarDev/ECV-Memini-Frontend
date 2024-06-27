@@ -5,7 +5,7 @@
     @apply !bg-theme-neutral-background data-[hover=true]:bg-theme-neutral-background data-[focus=true]:border-theme-primary data-[hover=true]:border-theme-primary p-2 data-[focus=true]:bg-theme-neutral-background border border-theme-primary-light gap-2 min-h-12 h-0;
 }
 .themed-input [data-slot='input-wrapper'] [data-slot='input'] {
-    @apply text-sm font-normal text-theme-neutral placeholder:text-theme-neutral;
+    @apply text-sm font-normal !text-theme-neutral placeholder:text-theme-neutral;
 }
 .themed-input[data-filled-within="true"] [data-slot='input-wrapper'] [data-slot='label'] {
     @apply scale-100 px-2 top-0 text-theme-neutral;
