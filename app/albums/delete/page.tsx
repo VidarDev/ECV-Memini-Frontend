@@ -53,7 +53,7 @@ const MemoryCreate = () => {
       const response = await fetch(
         `http://localhost:8080/album/delete`,
         {
-          method: 'DELETE',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },

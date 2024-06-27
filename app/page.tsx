@@ -5,12 +5,33 @@ import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { Image } from '@nextui-org/image';
 import { Link } from '@nextui-org/link';
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import OneIcons from '@/components/images/oneIcons';
 
 export default function Home() {
   const { user, loading } = useAuth();
   const router = useRouter();
+
+  const [albumCount, setAlbumCount] = useState();
+
+  useEffect(() => {
+    const getAlbumCount = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/album/getAlbumCount?username=${user.username}`);
+
+        if (response.ok) {
+          const data = await response.json();
+          setAlbumCount(data.count);
+        } else {
+          setAlbumCount(0);
+        }
+      } catch (e) {
+        setAlbumCount(0);
+      }
+    };
+
+    getAlbumCount();
+  }, []);
 
   const getDateWithMemories = async () => {
     const S = `http://localhost:8080/memory/getDatesByUsername?username=${user}`;
@@ -154,7 +175,7 @@ export default function Home() {
                   'app-min-h-card theme-shadow flex flex-1 flex-col items-center justify-center gap-2.5 rounded-2xl bg-theme-primary-400 px-4 py-5 text-theme-neutral-invert'
                 }
               >
-                <span className={'font-raleway text-5xl font-bold leading-10'}>3</span>
+                <span className={'font-raleway text-5xl font-bold leading-10'}>{albumCount}</span>
                 {/* TODO : replace */}
                 <span className={'font-pangaia text-base font-medium'}>nombre d’albums</span>
                 {/* TODO : replace */}
