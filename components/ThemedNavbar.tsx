@@ -15,7 +15,11 @@ export const ThemedNavbar = () => {
     return null;
   }
 
-  if (splitPathname[1] === 'albums' && splitPathname[2] === 'create') {
+  if (
+    splitPathname[1] === 'albums' &&
+    splitPathname[2] === 'memory' &&
+    splitPathname[3] === 'create'
+  ) {
     return null;
   }
 
