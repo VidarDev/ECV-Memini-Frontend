@@ -12,6 +12,20 @@ export default function Home() {
   const { user, loading } = useAuth();
   const router = useRouter();
 
+  const getDateWithMemories= async ()=>{
+    const S= `http://localhost:8080/memory/getDatesByUsername?username=${user}`
+    console.log(user.username)
+    console.log(S)
+    const response= await fetch(`http://localhost:8080/memory/getDatesByUsername?username=${user?.username}`)
+    if (!response.ok ) {
+      throw new Error('Impossible de contacter l`API')
+    }
+    else {
+      const body = await response.json()
+      console.log(body)
+    }
+  }
+
   useEffect(() => {
     if (!loading && !user) {
       router.push(siteConfig.href.auth);
@@ -28,6 +42,7 @@ export default function Home() {
       </p>
     ); // ou un spinner de chargement
   }
+  console.log(user);
 
   if (!user) {
     return null; // Ou un composant de chargement supplémentaire
@@ -35,6 +50,8 @@ export default function Home() {
 
   return (
     <>
+    <button
+    onClick={getDateWithMemories}> Click </button>
       <section
         className={'bg-theme-gradient relative flex min-h-[250px] flex-col rounded-b-[80px] px-4'}
       >
@@ -57,7 +74,7 @@ export default function Home() {
               startColor={'var(--theme-neutral)'}
               endColor={'var(--theme-neutral)'}
             />
-            <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Hello Flavie,</h1>
+            <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>Hello ${user.username},</h1>
             {/* TODO : replace */}
           </div>
         </div>
