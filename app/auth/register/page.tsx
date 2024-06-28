@@ -51,7 +51,7 @@ const Signup = () => {
 
 	const handleMailIsFree = async () => {
 		try {
-			const response = await fetch(`http://localhost:8080/isMailFree?mail=${mail}`);
+			const response = await fetch(`http://10.27.72.100:8080/isMailFree?mail=${mail}`);
 
 			if (response.ok) {
 				setMailError(null);
@@ -67,7 +67,7 @@ const Signup = () => {
 
 	const handleUsernameIsFree = async () => {
 		try {
-			const response = await fetch(`http://localhost:8080/isUsernameFree?username=${username}`);
+			const response = await fetch(`http://10.27.72.100:8080/isUsernameFree?username=${username}`);
 
 			if (response.ok) {
 				setUsernameError(null);
@@ -112,7 +112,7 @@ const Signup = () => {
 		const birthDate = `${year.padStart(4, '0')}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
 		try {
-			const response = await fetch(`http://localhost:8080/register`, {
+			const response = await fetch(`http://10.27.72.100:8080/register`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

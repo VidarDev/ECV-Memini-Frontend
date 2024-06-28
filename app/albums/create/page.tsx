@@ -37,7 +37,7 @@ const MemoryCreate = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:8080/album/save`, {
+      const response = await fetch(`http://10.27.72.100:8080/album/save`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
