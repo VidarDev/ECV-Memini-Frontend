@@ -64,7 +64,7 @@ export default function Albums() {
             </div>
             <div className={'relative w-fit'}>
               <h1 className={'w-fit font-pangaia text-3xl font-bold leading-10'}>
-                Flavie la vie {'<'}3
+              {user.username}
               </h1>
               {/* TODO : replace */}
             </div>
