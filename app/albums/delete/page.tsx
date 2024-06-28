@@ -24,7 +24,7 @@ const MemoryCreate = () => {
   const getAlbums = async (username: string) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/album/getAlbums?username=${username}`
+        `http://10.27.72.100:8080/album/getAlbums?username=${username}`
       );
       if (!response.ok) {
         throw new Error('Impossible de contacter l`API');
@@ -51,7 +51,7 @@ const MemoryCreate = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/album/delete`,
+        `http://10.27.72.100:8080/album/delete`,
         {
           method: 'DELETE',
           headers: {

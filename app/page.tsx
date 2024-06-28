@@ -13,10 +13,10 @@ export default function Home() {
   const router = useRouter();
 
   const getDateWithMemories = async () => {
-    const S = `http://localhost:8080/memory/getDatesByUsername?username=${user}`;
+    const S = `http://10.27.72.100:8080/memory/getDatesByUsername?username=${user}`;
 
     const response = await fetch(
-      `http://localhost:8080/memory/getDatesByUsername?username=${user?.username}`,
+      `http://10.27.72.100:8080/memory/getDatesByUsername?username=${user?.username}`,
     );
     if (!response.ok) {
       throw new Error('Impossible de contacter l`API');

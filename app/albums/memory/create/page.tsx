@@ -30,7 +30,7 @@ const MemoryCreate = () => {
 	useEffect(() => {
 		const getAlbums = async () => {
 			try {
-				const response = await fetch(`http://localhost:8080/album/getAlbums?username=${user?.username}`)
+				const response = await fetch(`http://10.27.72.100:8080/album/getAlbums?username=${user?.username}`)
 
 				if (response.ok) {
 					const data = await response.json();
@@ -95,7 +95,7 @@ const MemoryCreate = () => {
 				body: formdata
 			}
 			try {
-				const response = await fetch(`http://localhost:8080/memory/save`, options);
+				const response = await fetch(`http://10.27.72.100:8080/memory/save`, options);
 
 				if (response.ok) {
 					setStep((prevStep) => prevStep + 1);

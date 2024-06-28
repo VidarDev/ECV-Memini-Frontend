@@ -19,7 +19,7 @@ export default function AlbumsScreen() {
 
   const getAlbum = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/album/getAlbums?username=${user?.username}`);
+      const response = await fetch(`http://10.27.72.100:8080/album/getAlbums?username=${user?.username}`);
       if (!response.ok) {
         throw new Error('Impossible de contacter l`API');
       }
