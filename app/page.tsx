@@ -5,7 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { Image } from '@nextui-org/image';
 import { Link } from '@nextui-org/link';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import OneIcons from '@/components/images/oneIcons';
 
 export default function Home() {
@@ -17,7 +17,9 @@ export default function Home() {
   useEffect(() => {
     const getAlbumCount = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/album/getAlbumCount?username=${user.username}`);
+        const response = await fetch(
+          `http://localhost:8080/album/getAlbumCount?username=${user.username}`,
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -86,7 +88,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className={'mb-20 mt-16'}>
+        <div className={'mr-26 mb-28 mt-16'}>
           <div className={'relative w-fit'}>
             <OneIcons
               className={'absolute -right-2 -top-3 h-[32px] w-[19px]'}
